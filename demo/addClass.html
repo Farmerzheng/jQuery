@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<script src="lib/jQuery 1.12.3.min.js"></script>
+</head>
+<style>
+	input{
+		background: red;
+	}
+</style>
+<body>
+	<div></div>
+	<button>µã»÷</button>
+	<a href="http://">a</a>
+	<a href="http://">a</a>
+	<a href="http://">a</a>
+	<a href="#">a</a>
+	<input type="text" value="zhangsan">
+	<input type="password">
+	<script>
+	     $("button").click(function(){
+	     	$("div").addClass("abc");
+	     })
+
+	     $('input[type="text"]').keyup(
+	     	function(){
+	     	console.log($(this).css("background","yellow"))
+	     })
+
+	     $('a[href^="http://"]').css("color","red")
+		
+	</script>
+</body>
+</html>

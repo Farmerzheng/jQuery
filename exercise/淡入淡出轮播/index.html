@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		li{
+			list-style: none
+		}
+		.img-list{
+			position:relative;
+			height:203px;
+		}
+		.img-list li{
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		.dot-list{
+			 position:absolute;
+			 bottom:10px;
+			 right:10px;
+			 z-index: 100
+		}
+		.dot-list li{
+           float: left;
+           width:10px;
+           height:10px;
+           border-radius: 5px;
+           background: #fff;
+           margin-left:10px;
+		}
+
+		.clear{
+			zoom:1;
+		}
+		.clear::after{
+			clear:both;
+			content:"";
+			display: block;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div style="position:relative;">
+		<ul class="img-list">
+			<li><img src="img/img1.jpg" alt=""></li>
+			<li><img src="img/img2.jpg" alt=""></li>
+			<li><img src="img/img3.jpg" alt=""></li>
+			<li><img src="img/img4.jpg" alt=""></li>
+		</ul>
+		<ul class="dot-list clear">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+<script src="js/jquery-1.10.1.min.js"></script>
+<!-- $(function(){
+	
+}) -->
+
+
+<script>
+     var imgArr=$(".img-list li")
+     var dotArr=$(".dot-list li")
+
+     var index=0;
+     var timer=null;
+
+     function autoPlay(){
+
+	     	  timer=setInterval(function(){
+
+	           imgArr.eq(index).fadeIn().siblings().fadeOut();
+
+	           dotArr.eq(index).css("background","yellow").siblings().css("background","#fff")
+
+	           index++;
+
+	           if(index==4){
+	           	index=0
+	           }
+	    
+	         
+		},1000)
+     }
+
+     autoPlay();
+
+	
+
+	var imgWrap=$(".img-list")
+
+	imgWrap.hover(function(){
+
+     clearInterval(timer);
+
+	},function(){
+      autoPlay();
+	})
+
+	dotArr.each(function(){
+
+		$(this).hover(function(){
+			clearInterval(timer);
+          $(this).css("background","yellow").siblings().css("background","#fff");
+           imgArr.eq($(this).index()).stop().fadeIn().siblings().stop().fadeOut();
+
+		},function(){
+
+               
+		})
+	})
+
+
+</script>
+</html>

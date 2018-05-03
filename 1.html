@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+ #box{
+    width:100px;
+    height:300px;
+    position:fixed;
+    right:-100px;
+    top:200px;
+    background: yellow
+ }
+ #box .arrow{
+    position:absolute;
+    top:0;
+    left:-50px;
+    width:50px;
+    height:50px;
+
+    background: red
+ }
+</style>
+<body>
+<div id="box">
+  <div class="arrow"></div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+ // var flag=true;
+ //   $(".arrow").click(function(){
+ //      if(flag){
+ //        $("#box").stop().animate({"right":"0px"});
+ //        flag=false;
+ //    }else{
+ //         $("#box").stop().animate({"right":"-100px"})
+ //         flag=true
+ //    }    
+   
+     
+ //   })
+
+   //面向对象方法
+   var obj={
+      btn:$(".arrow"),
+      flag:true,
+      box:$("#box"),
+      init:function(){
+        this.bindEvent();
+      },
+      bindEvent:function(){
+ 
+
+            var self=this;
+          this.btn.click(function(){
+              if(self.flag){
+                self.box.stop().animate({"right":"0px"});
+                self.flag=false;
+            }else{
+                 self.box.stop().animate({"right":"-100px"})
+                 self.flag=true
+            }    
+           
+             
+           })
+      }
+   }
+
+   obj.init();
+</script>
+</html>

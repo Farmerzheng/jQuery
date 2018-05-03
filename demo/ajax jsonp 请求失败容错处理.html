@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jQuery%201.12.1.js"></script>
+</head>
+<style>
+    div{
+        width:100px;
+        height: 100px;
+        background:red;
+    }
+</style>
+<body>
+<input id="submit" type="button" value="提交">
+<div></div>
+<script>
+
+        $('#submit').click(function(){
+
+            $.ajax({
+//              type:'POST', 跨域请求不需要传请求类型
+                url:'http://app.sencha.com.cn/soya/apps/testdb/server/?action=wordList.insert&word=' + 111 + '&pronounce=' + 111 + '&description=' + 111 + '&wordtype=' + 111 + '&callback=initial',
+                dataType:'jsonp',
+//              data:{
+//                    action:'wordList.insert',
+//                    word:'111',
+//                    pronounce:'111',
+
+//                    description:'111',
+//                    wordtype:'111',
+//                    callback:'initial'
+//                },  跨域请求不需要传递'data'
+                success:function(response){
+//                    console.log(response);
+                    alert(response);
+                },
+                error:function(e){
+//                    console.log(e);
+                    alert('请求超时');
+                },
+                timeout:2000
+            });
+
+        });
+
+        function initial(){
+
+        }
+</script>
+
+</body>
+</html>

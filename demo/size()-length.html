@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+var top=$(window).scrollTop();
+if(top==0){
+//            alert(1);
+$("div").stop().animate({"height":80});
+}else if(top>0&&top<20){
+$("div").stop().animate({"height":60},200);
+
+}
+<ul>
+    <li>afsd</li>
+    <li>asdf</li>
+    <li>asdf</li>
+    <li>asdf</li>
+    <li>asdf</li>
+</ul>
+<script src="jQuery%201.12.1.js"></script>
+<script>
+    var num1=$("ul>li").length;
+    var num2=$("ul>li").size();
+    console.log(num1,num2);
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <span class="plus">+</span>
+    <span class="num">10</span>
+    <span class="minus">-</span>
+</p>
+</body>
+<script>
+    function $(className){
+        return document.getElementsByClassName(className)[0];
+    }
+//    var plusBtn=$("plus");
+//    var minusBtn=$("minus");
+//    var numDom=$("num");
+
+//    plusBtn.onclick=function(){
+//        numDom.innerText=parseInt(numDom.innerText)+1;
+//    }
+
+    var obj={
+        plusDom:$("plus"),
+        minusDom:$("minus"),
+        numDom:$("num"),
+        bindEvent:function(){
+            var me=this;
+            this.plusDom.onclick=function(){
+                me.numDom.innerText=parseInt(me.numDom.innerText)+1;
+            };
+            this.minusDom.onclick=function(){
+                me.numDom.innerText=parseInt(me.numDom.innerText)-1;
+            }
+        },
+        init:function(){
+            this.bindEvent();
+        }
+    };
+
+    obj.init();
+
+</script>
+</html>

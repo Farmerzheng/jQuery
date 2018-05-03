@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .bar {
+        height: 50px;
+        background-color: red;
+        margin: 2px;
+        width: 0
+    }
+</style>
+
+<body>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</body>
+<script src='js/jQuery.js'></script>
+<script>
+    //如果有多个 .bar， 那么通过 $('.bar')我们能够得到一个jQuery对象的数组
+    //如果有一个 .bar， 那么通过 $('.bar')我们能够得到一个jQuery对象
+    let barArr = $('.bar');
+    for (let i = 0; i < 10; i++) {
+        let randomNum = Math.random() * 50 + 10;
+        // 获取jQuery对象数组的单个元素方法 eq
+        $('.bar').eq(i).css({
+            'width': randomNum + 'px'
+        })
+    }
+</script>
+
+</html>

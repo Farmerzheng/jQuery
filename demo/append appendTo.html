@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>点击</button>
+<div>
+    <span>1</span>
+
+</div>
+</body>
+
+<script src="lib/jQuery%201.12.3.min.js"></script>
+<script>
+
+    $("button").click(function(){
+//        oDiv.append("2");
+        oDiv.prepend($("<span>0</span>"));
+//            $("<span>3</span>").appendTo(oDiv);
+//            $("<span>-1</span>").prependTo(oDiv);
+    });
+    var oDiv = $("div");
+
+    //    oDiv.append($("<span>2</span>"));
+    //
+
+</script>
+</html>

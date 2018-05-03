@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="lib/jquery-1.10.1.min.js"></script>
+</head>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style: none
+}
+.wrap{
+	margin:50px;
+	border:1px solid #ebebeb;
+	width:530px;
+	border-radius: 7px;
+	overflow: hidden;
+}
+  .tab-btnArr li{
+    float: left;
+  }
+  .tab-btnArr li{
+  	border-bottom: 1px solid yellow;
+  	width:130px;
+  	height:70px;
+  	line-height: 70px;
+  	background-color:#f5f5f5;
+  	text-align: center
+  }
+  .tab-btnArr .active{
+  	border-bottom:none;
+    width:268px;
+    background: #fff;
+    border-right: 1px solid yellow;
+    border-left: 1px solid yellow;
+  }
+  .clear{
+  	zoom:1;
+  }
+  .clear::after{
+  	content:"";
+  	display: block;
+  	clear:both;
+  }
+
+  .tab-content ul li{
+  	text-align: center;
+  	height:50px;
+  	line-height: 50px
+  }
+	
+</style>
+<body>
+<div class="wrap">
+	<ul class="tab-btnArr clear">
+		<li>小组更新</li>
+		<li class="active">我的小组</li>
+		<li>热门话题</li>
+	</ul>
+	<div class="tab-content">
+	
+	</div>
+</div>
+
+	<script>
+			var data=[
+	             {"msg":["你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!"]
+	             },
+
+	             {"msg":["你还未加入任何小组,赶快去找到组织吧!"]
+	             },
+
+	             {"msg":[
+	                       "【虾米精选集】问题反馈帖",
+	                       "帮忙恢复下我的精选集",
+	                       "虾米PC客户端3.0功能开发蓝图",
+	                       "问了好多遍都没人回复！！"
+	                      ]
+	                  }
+	             ]
+
+      var ulArr=[];
+        
+        for(var i=0;i<data.length;i++){
+
+                 var oUl=$("<ul></ul>");
+
+        	for(var j=0;j<data[i].msg.length;j++){
+
+        		var oLi=$("<li></li>")
+        		oLi.text(data[i].msg[j])
+        		oUl.append(oLi);
+
+        	}
+
+        	ulArr.push(oUl);
+        	
+        }
+
+        console.log(ulArr)
+
+                  $(".tab-content").append(ulArr[1])
+
+	             $(".tab-btnArr li").each(function(){
+	             	$(this).on("click",function(){
+	             		$(this).addClass("active").siblings().removeClass("active");
+                         $(".tab-content").html("");
+	             		$(".tab-content").append(ulArr[$(this).index()])
+	             	})
+	             })
+
+	</script>
+</body>
+</html>

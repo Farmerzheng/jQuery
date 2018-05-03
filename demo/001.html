@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jQuery%201.12.3.min.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .nav ,.s1{
+            list-style: none;
+            cursor: pointer;
+        }
+        .nav{
+            float: left;
+            background-color: #a6e1ec;
+            margin-left: 10px;
+            width:100px;
+        }
+        .nav ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="nav"> 首页
+        <ul>
+            <li class="s1">直播</li>
+            <li class="s1">视频</li>
+            <li class="s1">调查</li>
+        </ul>
+    </li>
+    <li class="nav">北京
+        <ul>
+            <li class="s1">北京电视台</li>
+            <li class="s1">新京报</li>
+            <li class="s1">法制晚报</li>
+            <li class="s1">北京晨报</li>
+            <li class="s1">北京青年报</li>
+        </ul>
+    </li>
+    <li class="nav">频道
+        <ul>
+            <li class="s1">生活</li>
+            <li class="s1">科技</li>
+            <li class="s1">体育</li>
+            <li class="s1">汽车</li>
+            <li class="s1">军事</li>
+            <li class="s1">文化</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $(".nav").hover(function(){
+        console.log("1");
+        $(this).find("ul").stop().slideToggle();
+    },function(){
+        console.log("2");
+        $(this).find("u1").stop().slideToggle();
+    })
+</script>
+</body>
+</html>

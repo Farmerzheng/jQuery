@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width:100px;
+        height:100px;
+        background:red;
+        padding:10px;
+        border:10px solid #000;
+        margin:10px;
+    }
+</style>
+<body>
+<div></div>
+<script src="lib/jQuery%201.12.3.min.js"></script>
+<script>
+    console.log($("div").width());   //width
+    console.log($("div").innerWidth());   //width+padding
+    console.log($("div").outerWidth());    //width+padding+border
+    console.log($("div").outerWidth(true));    //width+padding+border+margin
+</script>
+</body>
+</html>

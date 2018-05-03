@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        background:red
+    }
+</style>
+<body>
+
+<button id="detach">detach</button>
+<button id="back">back</button>
+
+<div class="div1">div1</div>
+<div class="div2">div2</div>
+
+</body>
+<script src="../lib/jQuery%201.12.3.min.js"></script>
+<script>
+    var div1=$(".div1");
+
+    div1.click(function(){
+        console.log(1);
+    });
+
+    $("#detach").click(function(){
+        // div1.detach();
+        // div1.remove();
+        div1[0].remove();
+    });
+
+    $("#back").click(function(){
+        $(".div2").before( div1);
+    })
+</script>
+</html>

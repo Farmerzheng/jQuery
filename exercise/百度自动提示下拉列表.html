@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery-1.10.1.min.js"></script>
+</head>
+<style>
+    #q {
+        height: 30px;
+        width: 300px;
+        border: 1px solid orange;
+        padding: 5px;
+    }
+
+    ul {
+        width: 310px;
+        list-style: none;
+        border: 1px solid orange;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+
+    ul li {
+        width: 300px;
+        height: 30px;
+    }
+
+    ul li a {
+        height: 20px;
+        width: 300px;
+        line-height: 30px;
+        display: block;
+        padding: 5px;
+        color: #000;
+        text-decoration: none;
+    }
+
+    ul li a:hover {
+        background: orange;
+    }
+</style>
+<body>
+<input type="text" id="q">
+<ul id="ul1">
+</ul>
+</body>
+<script>
+
+
+    var $=1;
+    //百度搜索框
+
+        console.log($);
+        var oText = document.getElementById('q');
+        var oUl = document.getElementById('ul1');
+        //https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=d&json=1&p=3&sid=18880_1430_19290_18282_17945_15790_12308_18019&req=2&csor=1&cb=miaov
+        function callback(data) {
+
+//        console.log(data);
+
+            if (data.s.length) {
+                oUl.style.display = 'block';
+                var html = '';
+
+                for (var i = 0; i < data.s.length; i++) {
+
+                    html += '<li><a href="#">' + data.s[i] + '</a></li>';
+                }
+                oUl.innerHTML = html;
+
+            } else {
+                oUl.style.display = 'none';
+            }
+        }
+
+
+        oText.onkeyup = function () {
+
+            if (this.value != '') {
+
+                oScript = document.createElement('script');
+
+                oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + oText.value + '&json=1&p=3&sid=18880_1430_19290_18282_17945_15790_12308_18019&req=2&cb=callback';
+
+                document.getElementsByTagName('body')[0].appendChild(oScript);
+                oScript.remove();
+
+            } else {
+                oUl.style.display = 'none';
+            }
+        };
+
+        oText.onblur = function () {
+            oUl.style.display = 'none';
+        }
+
+
+    //
+
+
+
+</script>
+</html>

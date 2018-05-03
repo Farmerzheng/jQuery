@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>ios弹窗效果</title>
+        <meta name="description" content="ios弹窗效果的jQuery插件的例子">
+        <meta name="author" content="张三">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+        <!--<link rel="stylesheet" href="css/custom.css">-->
+        <link rel="stylesheet" href="css/iosOverlay.css">
+        <!--<link rel="stylesheet" href="css/prettify.css">-->
+    </head>
+
+<body>
+
+<button id="checkMark">success</button>
+<!--<script src="js/modernizr-2.0.6.min.js"></script>-->
+<script src="js/jquery.min.js"></script>
+<script src="js/iosOverlay.js"></script>
+<script src="js/spin.min.js"></script>
+<!--<script src="js/prettify.js"></script>-->
+<script>
+    $(document).on("click", "#checkMark", function(e) {
+        iosOverlay({
+            text: "成功!",
+            duration: 2e3,
+            icon: "img/check.png"
+        });
+        return false;
+    });
+</script>
+</body>
+</html>

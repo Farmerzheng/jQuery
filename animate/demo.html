@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        display:block;
+    }
+</style>
+<body>
+<button id="hide">点击</button>
+<div></div>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+    var flag = true;
+    //flag=0;
+    $('#hide').click(function () {
+
+//        $("div").hide();
+//        $("div").show();
+//        $("div").slideToggle();
+//        if (flag == true) {
+//            $("div").slideUp();
+//           flag=false;
+//        } else {
+//            $("div").slideDown();
+//            flag=true;
+//        }
+//        flag = !flag;
+//        $("div").fadeOut("slow");
+//          $("div").fadeIn(2000,function(){
+//              alert(1);
+//          });
+
+        $("div").animate({
+            width:"200px",
+            height:"200px",
+            opacity:0.6,
+            top:"300px"
+        },3000,function(){
+            alert(1);
+        })
+    })
+</script>
+</body>
+</html>

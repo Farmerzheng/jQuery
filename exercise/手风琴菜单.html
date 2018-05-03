@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery-1.10.1.min.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+<ul class="artist">艺术家
+    <li class="artistList">
+        男歌手
+        <ul>
+           <li>陈奕迅</li>
+           <li>周杰伦</li>
+           <li>李建</li>
+        </ul>
+    </li>
+    <li class="artistList">
+       女歌手
+       <ul>
+           <li>王菲</li>
+           <li>张碧晨</li>
+           <li>郁可唯</li>
+           <li>孙达，秦健，刘恩伯</li>
+       </ul>
+    </li>
+    <li class="artistList">
+        文学家
+        <ul>
+           <li>海子</li>
+           <li>席慕蓉</li>
+           <li>张爱玲</li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    $(".artist").click(function () {
+        $(this).find(".artistList").stop().slideToggle();
+    });
+
+
+    //   $(".click1").click(function(){
+    //       $(this).find(".click ul li").stop().hide()
+    //   });
+
+
+    $(".artistList").click(function (event) {
+        //阻止事件冒泡粗茶淡饭付付付群错 
+        event.stopPropagation();
+        console.log($(this).find("ul"));
+        $(this).find("ul").stop().slideToggle();
+    });
+
+
+    //   $(".click").(function(){
+    //       $(this).find("ul li").slideToggle();
+    //   });
+</script>
+
+</body>
+</html>

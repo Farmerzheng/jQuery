@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery%201.12.3.min.js"></script>
+</head>
+<body>
+<input type="text" id="a">
+<script type="text/javascript">
+    $(function(){
+        if("\v"=="v"){//true为IE浏览器，感兴趣的同学可以去搜下，据说是现有最流行的判断浏览器的方法
+            document.getElementById("a").attachEvent("onporpertychange",function(e){
+                console.log("inputting!!");
+            })
+        }else{
+            document.getElementById("a").addEventListener("onporpertychange",function(e){
+                console.log("inputting!!");
+            })
+        }
+
+        document.getElementById("a").addEventListener("oninput",function(e){
+            console.log("inputting!!");
+        })
+    });
+</script>
+<script>
+//    $("input").change(function(){
+//        console.log(1);
+//    })
+
+//    $("input").on('input porpertychange',function(){
+//        console.log("e");
+//    });
+</script>
+</body>
+</html>

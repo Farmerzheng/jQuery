@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="div1">asdf<span>a</span></div>
+<div>asdf</div>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+    //filter  过滤（针对当前元素）
+    //not     filter的反义词（针对当前元素）
+    //has     包含(查看元素里面的内容)
+
+//    $('div').css("background","red");
+//    $("div").filter(".div1").css("background","red");
+//    $("div").not(".div1").css("background","red");
+      $("div").has("span").css("background","red");
+
+</script>
+</body>
+</html>

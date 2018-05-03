@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="userInput">
+    <button class="add">添加</button>
+    <div class="box">
+
+    </div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        let box = document.querySelector('.box');
+        let input = document.querySelector('#userInput');
+        let btn = document.querySelector('.add');
+
+        btn.addEventListener("click", clickHandler);
+
+        function clickHandler() {
+            let p = document.createElement("p");
+            p.innerText = input.value;
+            box.appendChild(p);
+        }
+
+
+        let data = [{
+            title: '微视频：《共产党宣言》的味道'
+        }, {
+            title: '协同推进长江生态优先绿色发展'
+        }, {
+            title: '奋斗者的答卷 奋斗的你们 成就奋进的中国'
+        }, {
+            title: '央视快评:新时代是干出来的 走近全国“最美职工”'
+        }, {
+            title: '中国人的故事：新时代劳动者最美 致敬城市清洁工'
+        }, {
+            title: '中国重大宣布 又打破了一项发达国家的技术垄断'
+        }, {
+            title: '台媒：台“断交”有后续 三“邦交”今年岌岌可危'
+        }, {
+            title: '台媒体人：美已亮出“台独”牌 大陆应有清醒认知'
+        }];
+
+        //    展示数据
+        for (let i = 0; i < data.length; i++) {
+            let p = document.createElement('p');
+            p.innerText = data[i].title;
+            let deleteBtn = document.createElement('button');
+            deleteBtn.addEventListener("click", deleteHandler);
+            deleteBtn.innerText = '删除';
+            let div = document.createElement('div');
+            div.appendChild(p);
+            div.appendChild(deleteBtn);
+            box.appendChild(div);
+        }
+
+        function deleteHandler() {
+            this.parentNode.remove();
+        }
+    </script>
+</body>
+
+</html>

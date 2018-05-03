@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery</title>
+</head>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<style type="text/css">
+  #nav{
+    background: pink;
+    position: fixed;
+    top:0;
+    left: 0;
+    height:50px;
+    width:100%;
+    display: block;
+  }
+</style>
+<body>
+<div id="nav"></div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</body>
+<script>
+   var navDiv=$("#nav");
+
+   var flag=false;
+
+   $(window).scroll(function(ev){
+
+    // console.log("滚动条滚动了")
+
+    //滚动条距离顶端的距离
+    var top=$(window).scrollTop();
+
+    if(top==0&&flag==true){      
+   
+       //navDiv.fadeIn(); //淡入效果，jQuery对象的方法
+      
+       navDiv.animate({"height":"80px"})//jQuery对象的动画方法，非常常用
+
+       flag=false;
+    }
+
+    if(top>0&&flag==false){
+
+       console.log("使导航条隐藏"); 
+
+       // navDiv.fadeOut(); //淡出效果，jQuery对象的方法 
+
+      navDiv.animate({"height":"50px"}) //jQuery对象的动画方法，非常常用
+
+       flag=true;
+    }
+
+   })  
+
+</script> 
+</html>

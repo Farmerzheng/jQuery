@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<li>java web详解</li>
+<li>javascript</li>
+<li>蓝翔挖掘机培训</li>
+<li>新东方厨师学校</li>
+<li>新东方英语培训学校</li>
+<input type="text" >
+<input type="button" value="点击">
+</body>
+<script src="../jQuery%201.12.1.js"></script>
+<script>
+
+
+    var btn=$('input[type="button"]');
+
+    btn.click(function(){
+
+        var values=$('input[type="text"]').val();
+
+        console.log(values);
+
+        $('li:contains('+values+')').css("color","red");
+    });
+
+</script>
+</html>

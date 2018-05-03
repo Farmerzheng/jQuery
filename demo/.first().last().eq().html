@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+
+        .wraper div {
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            float: left;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .clear::after{   /*IE6/7以外的浮动清除*/
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .clear{     /*IE6/7下的浮动清除*/
+            zoom:1;
+        }
+    </style>
+</head>
+<body>
+<div class="wraper clear">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</div>
+
+<ul>
+    <li>直接子节点
+        <li>间接子节点</li>
+        <li>间接子节点</li>
+        <li>间接子节点</li>
+    </li>
+    <li class="active">直接子节点</li>
+    <li>直接子节点</li>
+</ul>
+</body>
+<script src="lib/jQuery%201.12.3.min.js"></script>
+<script>
+    //    $("div").first().css("background","yellow");
+//    $("div").last().css("background", "yellow");
+//    $("div").eq(2).css("background", "yellow");
+//    $("div").eq(2).next().addClass("div4");
+//    $("div").eq(2).siblings().css("background","red");
+//    $("ul").find(".active").css("background","red");
+//    $("ul").children().css("color","pink");
+    console.log($("ul").children());
+    $("li").not(".active").css("color","orange")
+</script>
+</html>

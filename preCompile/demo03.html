@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    var hello=function (  ){
+    alert("hello");
+    }
+
+    hello(  );
+
+    function hello(  ){
+    alert("hello world");
+    }
+
+    hello(  );
+
+    /*第一步扫描var关键字，提前到最顶端：
+      var hello;
+      第二步扫描function定义式，提到var之后：
+      var hello;
+      function hello(){
+        alert('hello world');
+      }
+
+      第三步顺序执行代码
+      var hello;
+      function hello(){
+        alert('hello world');
+      }
+      hello = function(){
+      alert('hello');
+      }
+      hello(); // 弹hello
+      hello();//弹hello
+      */
+  </script>
+</body>
+</html>

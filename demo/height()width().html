@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width:300px;
+        height:300px;
+        background: yellow;
+        position:absolute;
+        top:100px;
+        left:300px;
+    }
+</style>
+<body>
+<div></div>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+    var div=$("div");
+//  console.log(typeof div.height());
+    console.log(div.css("top"));
+    console.log(div.position().top);
+</script>
+</body>
+</html>

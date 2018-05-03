@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #myid {
+        width: 100px;
+        height: 100px;
+        border: 1px solid rosybrown;
+    }
+</style>
+
+<body>
+    <div id="myid">
+        myid
+    </div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        // $: jQuery.js 为我们提供的一个函数（全局函数）
+        // $('#myid'): $函数的调用,里面的参数是一个字符串类型的css选择器
+        // $('#myid') 有返回值，返回值是一个对象，因为 .  是属性操作符，只有对象才能 .
+        //   返回的对象是一个全新的对象，我们管他叫jQuery对象
+        //   jQuery对象是对 DOM 对象的封装，jQuery对象由自己的方法和属性
+
+
+
+
+        // 回顾DOM对象的方法和属性
+
+        // getElementById();
+        // getElementsByTagName();
+        // getElementsByClassName();
+        // getElementsByName();
+        // querySelector();
+        // querySelectorAll();
+        // setAttribute();
+        // getAttribute();
+        // remove();
+        // appendChild();
+        // createElement();
+        // insertBefore();
+        // children();
+        // clone();
+
+        // .style.left
+        // .style.backgroundColor
+        // .offsetLeft
+        // .offsetTop
+        // .innerText (<p>p</p>)
+        // .innerHTML (<p>p</p>) 能够解析标签
+        // .parentNode
+
+
+
+
+        // css是jQuery对象的方法
+        // $('#myid').css('color', 'red');
+
+        // jQuery实现
+        // $('#myid').css({
+        //     'color': 'red',
+        //     'background-color': 'yellow',
+        //     'font-size': "30px"
+        // });
+
+        // 原生的js实现
+        // let myid = document.getElementById('myid');
+        // myid.style.color = 'red';
+        // myid.style.backgroundColor = 'yellow';
+        // myid.style.fontSize = '30px';
+
+        // jQuery是一个javascript库
+        // jQuery设计的核心思想：write less do more
+        // jQuery能够简化DOM操作
+
+        // <div id="myid">
+        // myid
+        // </div>
+
+        // 原生js实现方式
+        // 为#myid标签添加一个 box1 类
+        // let myid = document.getElementById('myid');
+        // myid.className = 'box1';
+        // 为#myid标签再添加一个 box2 类
+        // myid.className = 'box1 box2'
+
+        // jQuery实现方式
+        // $('#myid').addClass('box1 box2')
+
+        //  学习jQuery，学习什么？ 学习jQuery对象的方法和属性
+    </script>
+</body>
+
+</html>

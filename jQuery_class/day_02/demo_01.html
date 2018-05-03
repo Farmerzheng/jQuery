@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        //  往box当中添加一行文本 ‘今天天气非常好’
+
+        // 原生js
+        // let box = document.getElementById('box');
+        // box.innerText = '今天天气非常好'
+
+        // 往box当中添加一行标签   <h1>今天天气非常好</h1>
+        // let box = document.getElementById('box');
+        // box.innerText = '<h1>今天天气非常好</h1>'
+        // box.innerHTML = '<h1>今天天气非常好</h1>'
+
+        // innerHTML 与 innerText 的区别？
+        // innerText 不能够解析标签
+
+
+        // jQuery如何实现？
+        // innerHTML ---> html()
+        // innerText ---> text()
+        // $('#box').html('<h1>今天天气非常好</h1>');
+        $('#box').text('<h1>今天天气非常好</h1>');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /*
+  1.js在页面加载过程中顺序执行。但是分块预编译、执行。
+
+  2.JS 在执行前会进行类似"预编译"的操作，而且先预声明变量再预定义函数。
+
+  此时注意，是声明，不是定义，如：var a = 1; 在预编译中，只是执行了"var a"没有赋
+
+  值，即在预编译结束时a 为undefined。
+
+  3.（注意）并不是先全文编译完在执行，而是块编译，即一个script块中，预编
+
+  译再执行，然后（按顺序）下一个script块，预编译再执行，但此时上一个块中
+
+  的数据都是可以用的，但下一个块中的函数，声明的变量都是不可用的。
+
+  4.变量没声明就引用，会报错，但对象方法，对象变量没声明，是undefined
+
+  5.在函数中变量不声明就赋值，会被认为是全局变量，用var声明后为函数变量
+
+  6.在执行函数时也是先编译后执行，但要注意函数定义中（即大括号中）的代
+
+  码即使有错只要函数不执行，就不会有影响，但一执行函数，开始函数预编译就
+
+  会出错。
+
+  */
+  </script>
+</body>
+</html>

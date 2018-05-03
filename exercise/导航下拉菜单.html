@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery-1.10.1.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    .nav {
+        float: left;
+        list-style: none;
+        background: red;
+    }
+    li{
+        list-style: none;
+        cursor: pointer;
+    }
+    .list{
+        background: yellow;
+    }
+
+    .nav ul {
+        display: none;
+    }
+</style>
+<body>
+<div>
+    <ul>
+        <li class="nav">素炒饼
+            <ul>
+                <li class="list">饼丝</li>
+                <li class="list">豆芽</li>
+            </ul>
+        </li>
+        <li class="nav">蛋炒饼
+            <ul>
+                <li class="list">饼丝</li>
+                <li class="list">鸡蛋</li>
+            </ul></li>
+        <li class="nav">老干妈炒饼
+            <ul>
+                <li class="list">饼丝</li>
+                <li class="list">老干妈</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script>
+    // $(".nav").hover(function(){
+//        console.log(1);
+       //stop()阻止上一次未执行完的动画
+        // $(this).find("ul").stop().slideToggle();
+
+    // },function(){
+//        console.log(2);
+//        $(this).find("ul").css("display","none");
+        // $(this).find("ul").stop().slideToggle();
+    // })
+
+    var navObj={
+        init:function(){
+           //对象的初始化方法中为对象的按钮组属性绑定事件
+           this.bindEvent();
+        },
+        //对象的按钮组属性
+        navBtnArr: $(".nav"),
+        //对象的绑定事件的方法
+        bindEvent:function(){
+            //hover()  jQuery对象的方法，鼠标移入移出的方法，方法里面有两个
+            //参数,参数值分别是两个函数，第一个是鼠标移入时执行的函数，第二个是
+            //鼠标移出时执行的函数
+
+            //外面的this 指的是navObj
+            //this.navBtnArr 是navObj的安钮数组属性
+            //jQuery当中可以直接为jQuery对象集合挂接事件，内部会自动循环集合中的每个对象
+            this.navBtnArr.hover(function(){
+
+                // 里面的this指的是 $(".nav") 集合中移入的那个按钮所对应的DOM对象
+                //$(this)才是指的jQuery對象
+                //find()是jQuery对象的方法
+                //slideToggle()是jQuery对象的动画效果
+                $(this).find("ul").stop().slideToggle();
+            },function(){
+                $(this).find("ul").stop().slideToggle();
+            })
+        }
+    }    
+    //对象初始化
+    navObj.init();
+</script>
+</body>
+</html>

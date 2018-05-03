@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="father">
+        <p>1</p>
+        <p>2</p>
+    </div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        // append    (向每个匹配的父元素的最后面追加内容)
+        // appendTo   (把所有匹配的元素追加到指定的元素集合最后面)
+        // prepend   (向每个匹配的元素的最前面追加内容)
+        // prependTo  (把所有匹配的元素追加到指定的元素集合最前面)
+
+        // 需求 ： .father 最后面添加一个p,里面的文本是3
+        // 需求 ： .father 最前面添加一个p,里面的文本是3
+
+
+        // js
+
+        // let p = document.createElement('p');
+        // p.innerText = '3';
+        // let father = document.querySelector('.father');
+        // father.appendChild(p);
+        // let firstP = document.getElementsByTagName('p')[0];
+        // insertBefore (' 要插入的元素'，'插入元素的位置')
+        // father.insertBefore(p, firstP);
+
+
+
+        // jQuery
+        let p = $('<p>3</p>');
+        // $('.father').append(p);
+        // p.appendTo($('.father'));
+
+        // $('.father').prepend(p);
+        // p.prependTo($('.father'))
+    </script>
+</body>
+
+</html>

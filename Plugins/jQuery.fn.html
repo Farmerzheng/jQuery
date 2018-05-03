@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery.fn</title>
+    <script src="../js/jQuery%201.12.1.js"></script>
+</head>
+<body>
+
+<script>
+//    构造函数在构造新对象的时候，会有一个特殊的属性prototype,构造出的新对象都会有一个父亲，这个父亲就是prototype对象，
+//    jQuery原型对象是所有jQuery对象的祖先
+//如果在jQuer
+//jQuery插件就是给jQuery原型对象上新增一个方法
+//jQuery为开发插件提拱了两个方法，分别是：
+//jQuery.fn.extend();给jQuery对象添加方法
+//jQuery.extend();为jQuery类添加类方法
+//jQuery.fn = jQuery.prototype；jQuery对象的原型
+//对jQuery.prototype进行的扩展，就是为jQuery类添加“成员函数”，jQuery类的实例可以使用这个“成员函数”(类的成员函数描述的是类的行为)
+//jQuery便是一个封装得非常好的类，比如我们用语句$(“#btn1″)会生成一个jQuery类的实例
+//jQuery.extend()的调用并不会把方法扩展到对象的实例上，引用它的方法也需要通过jQuery类来实现
+//jQuery.fn.extend()的调用把方法扩展到了对象的prototype上，所以实例化一个jQuery对象的时候，它就具有了这些方法
+(function($){
+  var shade="#556b2f";
+    $.fn.greenify=function(){
+        this.css("color",shade);//this为jQuery对象，this指最后一个点号前面的内容
+        return this;//返回jQuery对象，保持链式编程
+    }
+}(jQuery));
+    //最外面的小括号是一个表达式，一旦出现表达式的时候就，就会对表达式进行求解
+
+</script>
+</body>
+</html>

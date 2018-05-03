@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">跳转到百度</button>
+</body>
+<script>
+    document.getElementById("btn").onclick=function(){
+
+        //移动端适配的时候
+
+        if(window.screen.width<750){
+            window.location.href="http://www.baidu.com";
+        }else{
+            window.location.href="http://www.sohu.com";
+        }
+    }
+
+</script>
+</html>

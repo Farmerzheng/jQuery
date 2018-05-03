@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击消失之面向对象</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 200px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <button class="btn1 cont-btn">点击</button>
+        <button class="btn2 cont-btn">还是点击</button>
+        <div class="box"></div>
+    </div>
+    <script src="lib/jquery-1.10.1.min.js"></script>
+    <script>
+        //面向过程
+        /*var btn1 = $(document.getElementsByClassName('cont-btn')[0]);
+        var btn2 = $(document.getElementsByClassName('cont-btn')[1]);
+        var box = $('.box');
+        var flag = false;
+
+        btn1.click(displayToggle);
+        btn2.click(displayToggle);
+        $(document).click(function(){
+            box.css('display','none');
+            flag = false
+        });
+
+        function displayToggle(){
+            if(flag == false){
+                box.css('display','block');
+                flag = true
+            }else {
+                box.css('display','none');
+                flag = false
+            }
+            event.stopPropagation();
+        }*/
+
+        //面向对象
+
+        // var box = $('.box');
+
+        var obj = {
+            init:function(){
+
+                  this.bindEvent();
+            },
+            box: $('.box'),
+            btn:$(".btn1"),
+            flag:false,
+            bindEvent:function(){
+
+               this.btn1Click();
+               this.documentClick();
+            },
+            btn1Click:function(){
+
+                var self=this;
+                  this.btn.click(function(e){
+
+                    e.stopPropagation();
+
+                    if(self.flag){
+                         self.box.css("display","block")
+
+                         self.flag=false;
+                     }else{
+                         self.box.css("display","none")
+                         self.flag=true;
+                     }
+                   
+                  })
+            },
+            documentClick:function(){
+
+                   var self=this;
+                  $(document).click(function(){
+                         self.box.css("display","none")
+                         self.flag=true;
+                  })
+                     
+            }
+           
+        };
+
+        obj.init();
+
+        var btn2=Object.create(obj);
+
+        btn2.btn=$(".btn2");
+
+        // var btn2={};
+        
+        // $.extend(btn2,obj,{btn:$(".btn2")})
+
+        btn2.init();
+        
+
+
+    </script>
+</body>
+</html>

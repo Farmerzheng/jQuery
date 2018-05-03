@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="jQuery%201.12.3.min.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0
+    }
+    li{
+        text-align: center;
+        margin: 10px;
+    }
+</style>
+<body>
+<button style="float: right">点击</button>
+<div id="sideBar" style="background: yellow;position: fixed;top:0">
+    <ul>
+        <li><a href="">中国</a></li>
+        <li><a href="">美国</a></li>
+        <li><a href="">英国</a></li>
+        <li><a href="">加拿大</a></li>
+        <li><a href="">瑞典</a></li>
+        <li><a href="">芬兰</a></li>
+        <li><a href="">挪威</a></li>
+        <li><a href="">奥地利</a></li>
+    </ul>
+</div>
+</body>
+<script>
+    var width=window.screen.width;
+    var height=window.screen.height;
+    var sideBar=  $("#sideBar");
+    var flag=true;
+    sideBar.css({"height":height,"width":width*0.7,left:-width*0.7});
+
+    $("button").click(function(){
+        if(flag){
+            sideBar.animate({left:0});
+            flag=!flag;
+        }else{
+            sideBar.animate({left:-width*0.7});
+            flag=!flag;
+        }
+
+    })
+</script>
+</html>

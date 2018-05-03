@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+<button>5</button>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+    //"index" 不是标签自带的属性
+    var btnArr=document.getElementsByTagName("button");
+    for(var i=0;i<btnArr.length;i++){
+        console.log(btnArr[i].index);
+        console.log(btnArr[i].id);
+    }
+
+    //"index()"是jQuery对象的索引方法
+    var btnArr2=$("button");
+    for(var i=0;i<btnArr2.length;i++){
+        console.log(btnArr2.eq(i).index());
+    }
+</script>
+</body>
+</html>

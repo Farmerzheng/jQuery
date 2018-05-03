@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" style="width:100px;height:100px;background:yellow">
+    <button class="btn">点击按钮1</button>
+    <button class="btn">点击按钮2</button>
+    <button class="btn">点击按钮3</button>
+    <button class="btn">点击按钮4</button>
+    <button class="btn5">点击按钮5</button>
+</div>
+
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+
+//    var a=1;
+
+    $("div").on("click","button",function(e){
+        console.log(e.target.innerHTML)
+    })
+        // console.log(1);
+//        a++;
+//        console.log(a);
+       // console.log(e);
+//
+     
+   // $("div").off( "click","button");
+
+        // $("button").off("click")
+      
+    // });
+
+    // $(".btn4").on("click",function(){
+    //     console.log(1);
+    // })
+
+    // var buttonArr=document.getElementsByTagName("button");
+
+    // ES5（ECMAsript5）
+    // ES6（ECMAsript6）又叫ES2015
+
+    // var 
+    // let 
+
+    // const PI=3.34;
+
+    // PI=PI+1;
+
+    // console.log(PI)
+
+    // for(var i=0;i<4;i++){
+
+
+
+        // buttonArr[i].onclick=function(){
+        //     console.log(i);
+        // }
+
+    //     buttonArr[i].onclick=(function(number){
+
+    //         return function(){
+
+    //             console.log(number)
+    //         }
+
+    //     })(i)
+
+    // }
+
+
+
+    // $("button").each(function(index){
+
+    //     $(this).on("click",function(){
+
+    //         console.log($(this).index());
+
+    //     })
+    // })
+
+    // var oDiv=document.getElementById("div1");
+
+    // oDiv.onclick=function(e){
+       // console.log(e);
+       // console.log(e.target.TagsName)
+
+        // console.log(e.target.className);
+
+        // if(e.target.className=="btn"){
+        //     console.log(e.target.innerText)
+        // }
+
+       // }
+    // }
+
+     
+
+
+</script>
+</body>
+</html>

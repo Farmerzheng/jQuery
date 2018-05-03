@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    ul{
+        width:100px;
+        height:100px;
+        background:yellow;
+    }
+</style>
+<body>
+<ul>
+    <li>1</li>
+    <li class="li2">2</li>
+    <li>3</li>
+</ul>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+    $('.li2').before($("<li>before</li>"));
+    $('.li2').after($("<li>after</li>"));
+</script>
+</body>
+</html>

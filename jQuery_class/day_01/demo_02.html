@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="username" id="user">
+    <button id='btn'>按钮</button>
+    <script src="js/jQuery.js"></script>
+    <script>
+        //   需求
+        // 点击按钮的时候打印出用户输入的值
+        // let input = document.getElementsByName("username")[0];
+        // let btn = document.getElementsByTagName('button')[0];
+        // btn.addEventListener('click', clickHandler);
+
+        // function clickHandler() {
+        //     console.log(input.value);
+        // }
+
+        // 需求 通过jQuery来实现
+
+        // 方法一
+        // $('#btn').click(function() {
+        //     console.log($('#user').val())
+        // })
+
+        // 方法二
+        // $('#btn').on("click", clickHandler)
+
+        // function clickHandler() {
+        //js : input.value
+        //jQuery : $('#user').val()
+        // console.log($('#user').val())
+        // }
+
+
+        // 需求 ： 点击按钮，输入框的value值变成 '王老师饿了'
+        // let input = document.getElementsByName("username")[0];
+        // let btn = document.getElementsByTagName('button')[0];
+        // btn.addEventListener('click', clickHandler);
+
+        // function clickHandler() {
+        //     input.value = '王老师饿了'
+        // }
+
+
+        // $('#btn').on("click", clickHandler)
+
+        // function clickHandler() {
+        //     $('#user').val('王老师饿了')
+        // }
+
+        // input的读取与设置
+        //  value <----> val()
+        //  value = '王老师饿了'  <----> val('王老师饿了')
+        
+    </script>
+
+</body>
+
+</html>

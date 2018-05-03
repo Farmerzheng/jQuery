@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery%201.12.3.min.js"></script>
+</head>
+<style>
+
+    #div1 {
+        width: 200px;
+        height: 200px;
+        background: red;
+    }
+
+    #div2 {
+        width: 100px;
+        height: 100px;
+        background: pink;
+    }
+</style>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<script>
+//    $("#div1").mouseenter(function () {
+//        console.log(1);
+//    });
+//    $("#div1").mouseleave(function () {
+//        console.log(2);
+//    })
+//    $("#div2").mouseenter(function () {
+//        console.log(3);
+//    })
+//    $("#div2").mouseleave(function () {
+//        console.log(4);
+//    })
+//
+    $("#div1").mouseover(function () {
+        console.log(1);
+    });
+    $("#div1").mouseout(function () {
+        console.log(2);
+    });
+    $("#div2").mouseover(function () {
+        console.log(3);
+    });
+    $("#div2").mouseout(function () {
+        console.log(4);
+    })
+</script>
+</body>
+</html>

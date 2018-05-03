@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得jQuery对象</title>
+
+</head>
+<style>
+    #div1{
+        width:300px;
+        height:300px;
+        background:red;
+    }
+</style>
+<body>
+<div id="div1"></div>
+</body>
+<script src="lib/jQuery%201.12.3.min.js"></script>
+<script>
+//    var oDiv1=$('#div1');
+      var oDiv1=document.getElementById("div1");
+      oDiv1=$(oDiv1);
+    oDiv1.css("background","yellow");
+    var oDiv2=$("<div>div2</div>");
+    oDiv1.append(oDiv2);
+</script>
+</html>

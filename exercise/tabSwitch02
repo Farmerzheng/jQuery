@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+	<ul>
+		<li>小组更新</li>
+		<li>我的小组</li>
+		<li>热门话题</li>
+	</ul>
+</div>
+
+	<script>
+			var data=[
+	             {"msg":["你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!","你还未加入任何小组,赶快去找到组织吧!"]},
+	             {"msg":["你还未加入任何小组,赶快去找到组织吧!"]},
+	             {"msg":[
+	                       "【虾米精选集】问题反馈帖",
+	                       "帮忙恢复下我的精选集",
+	                       "虾米PC客户端3.0功能开发蓝图",
+	                       "问了好多遍都没人回复！！"
+	                      ]
+	                  }
+	             ]
+
+	</script>
+</body>
+</html>

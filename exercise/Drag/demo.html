@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<style type="text/css">
+	div{
+		width:200px;
+		height:200px;
+		background: red;
+		position:absolute;
+		left:100px;
+		top:100px;
+	}
+</style>
+<body>
+	<div></div>
+</body>
+<script type="text/javascript">
+// jQuery
+	// $("div").on("mousedown",function(e){
+	// 	// console.log(1);
+ //      console.log(e.pageX,e.pageY,$(this).offset().left,$(this).offset().top);
+
+ //      var divX=e.pageX-$(this).offset().left;
+ //      var divY=e.pageY-$(this).offset().top;
+
+ //      $(document).on("mousemove",function(e){
+ //          	$("div").css({"left":e.pageX-divX,"top":e.pageY-divY});
+
+ //      }) 
+
+ //    })
+
+ //    $("div").on("mouseup",function(){
+ //    	 $(document).off();
+ //    })
+
+
+// 原生js
+     // var oDiv=document.getElementsByTagName("div")[0];
+     // var fn;
+
+     // oDiv.onmousedown=function(e){
+     // 	console.log(e.clientX,e.clientY,this.offsetLeft,this.offsetTop)
+
+     //     var divX=e.clientX-this.offsetLeft;
+     //     var divY=e.clientY-this.offsetTop;
+     //       console.log(divX,divY)
+
+     //       fn=function(e){
+     //     	console.log(e.clientX,e.clientY)
+
+     //        oDiv.style.left=(e.clientX-divX)+"px";
+     //        oDiv.style.top=(e.clientY-divY)+"px";
+     //     };
+
+     //     document.addEventListener("mousemove",fn)
+     // }
+
+     // oDiv.onmouseup=function(){
+     // 	document.removeEventListener("mousemove",fn)
+     // }
+</script>
+</html>

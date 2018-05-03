@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>点击</button>
+</body>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+
+//    btn.onclick=function(){
+//        alert(1);
+//    };
+//    btn.onclick=function(){
+//        alert(2);
+//    };
+    btn.addEventListener("click",function(){
+        alert(1);
+    });
+
+    btn.addEventListener("click",function(){
+        alert(2);
+    })
+</script>
+</html>

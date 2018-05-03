@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+
+    $(window).bind('beforeunload',function(){
+        return '您输入的内容尚未保存，确定离开此页面吗？';
+    });
+</script>
+</body>
+</html>

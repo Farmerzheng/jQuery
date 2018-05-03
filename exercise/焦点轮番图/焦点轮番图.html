@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheezxc vn,./
+    ";<pukjtgrqsa>Q24</pukjtgrqsa>"#bigImgWrap .bigImg {
+        width: 100%;
+        height: 400px;
+        float: left;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    #bigImgWrap .bigImg li {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+
+    #bigImgWrap .bigImg li img {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    #smallImgWrap {
+        width: 70%;
+        margin-left: 15%;
+        height: 100px;
+        background: yellow;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #smallImgWrap .smallImg {
+
+        background: pink;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    #smallImgWrap .smallPreBtn {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+
+    #smallImgWrap .smallNextBtn {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        z-index: 3;
+    }
+
+    #smallImgWrap .smallImg li {
+        float: left;
+        height: 90px;
+        width: 130px;
+        margin: 5px;
+
+    }
+
+    #smallImgWrap .smallImg li img {
+        width: 100%;
+        height: 100%
+    }
+
+    /*左右箭头样式*/
+    .fa-arrow-left:before {
+        font-size: 50px;
+    }
+
+    .fa-arrow-right:before {
+        font-size: 50px;
+    }
+
+    #bigImgWrap .bigPreBtn .bigPreBtnImg {
+        margin-top: 150px;
+    }
+
+    #bigImgWrap .bigNextBtn .bigNextBtnImg {
+        margin-top: 150px;
+        margin-left: 15px;
+    }
+
+    #smallImgWrap .smallPreBtn .smallPreBtnImg {
+        margin-top: 20px;
+    }
+
+    #smallImgWrap .smallNextBtn .smallNextBtnImg {
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+
+    #bigImgWrap .bigNextBtn {
+        width: 10%;
+        height: 400px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        display: none;
+    }
+
+    #bigImgWrap .bigPreBtn {
+        width: 10%;
+        height: 400px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        display: none;
+    }
+
+</style>
+<body>
+<div id="wrap">
+    <div id="bigImgWrap">
+        <div class="bigPreBtn"><i class="bigPreBtnImg fa fa-arrow-left"></i></div>
+        <ul class="bigImg">
+            <li><img src="img/nature1.jpg" alt=""></li>
+        </ul>
+        <div class="bigNextBtn"><i class="bigNextBtnImg fa fa-arrow-right"></i></div>
+    </div>
+    <div id="smallImgWrap">
+        <div class="smallPreBtn"><i class="smallPreBtnImg fa fa-arrow-left"></i></div>
+        <ul class="smallImg clear">
+            <li><img src="img/natureSmall1.jpg" alt=""></li>
+            <li><img src="img/natureSmall2.jpg" alt=""></li>
+            <li><img src="img/natureSmall3.jpg" alt=""></li>
+            <li><img src="img/natureSmall4.jpg" alt=""></li>
+            <li><img src="img/natureSmall5.jpg" alt=""></li>
+            <li><img src="img/natureSmall1.jpg" alt=""></li>
+            <li><img src="img/natureSmall2.jpg" alt=""></li>
+            <li><img src="img/natureSmall3.jpg" alt=""></li>
+            <li><img src="img/natureSmall4.jpg" alt=""></li>
+            <li><img src="img/natureSmall5.jpg" alt=""></li>
+            <li><img src="img/natureSmall1.jpg" alt=""></li>
+            <li><img src="img/natureSmall2.jpg" alt=""></li>
+            <li><img src="img/natureSmall3.jpg" alt=""></li>
+            <li><img src="img/natureSmall4.jpg" alt=""></li>
+            <li><img src="img/natureSmall5.jpg" alt=""></li>
+        </ul>
+        <div class="smallNextBtn"><i class="smallNextBtnImg fa fa-arrow-right"></i></div>
+    </div>
+</div>
+<script src="lib/jQuery%201.12.3.min.js"></script>
+<script>
+    var bigImgArr = ["img/nature1.jpg", "img/nature2.jpg", "img/nature3.jpg", "img/nature4.jpg", "img/nature5.jpg", "img/nature1.jpg", "img/nature2.jpg", "img/nature3.jpg", "img/nature4.jpg", "img/nature5.jpg", "img/nature1.jpg", "img/nature2.jpg", "img/nature3.jpg", "img/nature4.jpg", "img/nature5.jpg"];
+    var smallImgArr = ["img/natureSmall1.jpg", "img/natureSmall2.jpg", "img/natureSmall3.jpg", "img/natureSmall4.jpg", "img/natureSmall5.jpg", "img/natureSmall1.jpg", "img/natureSmall2.jpg", "img/natureSmall3.jpg", "img/natureSmall4.jpg", "img/natureSmall5.jpg", "img/natureSmall1.jpg", "img/natureSmall2.jpg", "img/natureSmall3.jpg", "img/natureSmall4.jpg", "img/natureSmall5.jpg"];
+
+    //鼠标移入大图，显示左右箭头
+    $("#bigImgWrap").hover(function () {
+        $(this).find("div").show();
+    }, function () {
+        $(this).find("div").hide();
+    });
+
+    //点击小图切换大图
+    $(" #smallImgWrap .smallImg li img ").on("click", function () {
+
+        var smallImgSrc = $(this).attr("src");
+
+        $(this).css("border","2px solid red").parent().siblings().find("img").css("border","none")
+//        console.log(imgSrc);
+        var bigImgSrc = "img/natureSmall" + smallImgSrc.split("ll")[1];
+//        console.log(bigImgSrc);
+        $(" #bigImgWrap .bigImg li img").attr("src", bigImgSrc);
+
+        console.log($(this).parent().offset().left);
+//        $(this).parent().offset({"left":500});
+    });
+
+    //    点击小图的左右侧按钮
+    //定义变量，记录点击次数
+    var clickNum = 0;
+
+    //每个图片的宽度
+    var singleImgWidth = parseInt($("#smallImgWrap .smallImg li").css("width"));
+
+    //所有小图片的宽度
+    var imgWidth= parseInt($("#smallImgWrap .smallImg li").css("width"))*smallImgArr.length;
+
+    $(".smallPreBtn").on("click", function () {
+        if(singleImgWidth * 4 * (clickNum+1)<imgWidth){
+            console.log(clickNum);
+            clickNum++;
+            console.log( -singleImgWidth * 4 * clickNum);
+            $(".smallImg").animate({"left": -singleImgWidth * 4 * clickNum});
+        }else {
+            alert("已经到达最后一张");
+        }
+
+
+    });
+    $(".smallNextBtn").on("click", function () {
+        if(clickNum==0){
+            alert("已经到第一张");
+
+        }else{
+            console.log(clickNum);
+            clickNum--;
+            $(".smallImg").animate({"left": -singleImgWidth * 4 * clickNum});
+        }
+
+
+    })
+
+</script>
+</body>
+</html>

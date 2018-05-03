@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+    $(window).bind('beforeunload', function () {
+        return "快住手！！别点下去！！";//存在浏览器兼容性
+    });
+    //    window.onbeforeunload=function(){
+    //        return "快住手！！别点下去！！";
+    //    };
+</script>
+</body>
+</html>

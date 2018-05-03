@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="userInput">
+    <button class="add">添加</button>
+    <div class="box">
+
+    </div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        let data = [{
+            title: '微视频：《共产党宣言》的味道'
+        }, {
+            title: '协同推进长江生态优先绿色发展'
+        }, {
+            title: '奋斗者的答卷 奋斗的你们 成就奋进的中国'
+        }, {
+            title: '央视快评:新时代是干出来的 走近全国“最美职工”'
+        }, {
+            title: '中国人的故事：新时代劳动者最美 致敬城市清洁工'
+        }, {
+            title: '中国重大宣布 又打破了一项发达国家的技术垄断'
+        }, {
+            title: '台媒：台“断交”有后续 三“邦交”今年岌岌可危'
+        }, {
+            title: '台媒体人：美已亮出“台独”牌 大陆应有清醒认知'
+        }];
+
+        for (let i = 0; i < data.length; i++) {
+            //    如何创建一个jQuery对象
+            // $('html代码片段')
+
+            // 创建一个p(jQuery对象)
+            let p = $('<p></p>');
+
+            // text()<---->innerText
+            p.text(data[i].title);
+
+            // 创建一个删除按钮
+            let deleteBtn = $('<button> 删除</button>');
+
+            deleteBtn.on('click', deleteHandler);
+
+            let div = $('<div></div>');
+
+            // append <----> appendChild
+            div.append(p);
+            div.append(deleteBtn);
+            $('.box').append(div);
+
+        }
+
+        function deleteHandler() {
+            // this ---> deleteBtn
+            // parent()  --->parentNode
+            // 将DOM 对象转化成jQuery对象
+            // DOM-----> $(DOM)
+
+            $(this).parent().remove();
+        }
+
+        $('.add').on('click', addHandler);
+
+        function addHandler() {
+            let p = $('<p>' + $('#userInput').val() + '</p>');
+            let deleteBtn = $('<button> 删除</button>');
+            deleteBtn.on('click', deleteHandler);
+            let div = $('<div></div>');
+
+            // append <----> appendChild
+            div.append(p);
+            div.append(deleteBtn);
+            $('.box').append(div);
+        }
+    </script>
+</body>
+
+</html>

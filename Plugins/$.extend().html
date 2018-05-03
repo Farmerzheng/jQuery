@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.10.1.min.js"></script>
+<script>
+    //    $.extend()多用在编写插件
+    //    extend(result,item1,item2…..)
+    //    这里这个方法主要用来合并，将所有的参数项都合并result中，并返回result，但是这
+    //    样就会破坏result的结构
+    var result = $.extend({}, {name: "Tom", age: 21}, {name: "Jerry", sex: "Boy"});
+    console.log(result);
+    //
+    //    extend({},item1,item2,……)
+    //    用这个方法，可以将所得的结果全部合并在{}中，并返回，而且还不会破坏原有的项的结构。
+    //    示例：
+    //    Var item={name:”olive”,age:23};
+    //    Var item1={name:”Momo”,sex:”gril”};
+    //    Var result=$.extend({},item,item1);
+    //    结果：
+    //    Result={name:”Momo”,age:23,sex:”gril”};
+    //    说明：
+    ////    以上的结果表明extend方法将所有的项都合并到了{}中，但是，细心一点就会发现，其中item1中的name：“Momo” 将item中的name：“olive”给覆盖了，这是怎么回事？请接着往下看。
+    //    extend(bool,{},item1,item2….)
+    //    Extend方法还有带bool型参数的重载。
+    //    bool型参数为true表示深拷贝，为false时表示浅拷贝。具体可以通过一下示例来说明：
+    //    示例：
+    //    var item={name：“olive”,age:23,address{provice:”河南”,city:”郑州”}};
+    //    var item1={sex:”girl”,address{city:”北京”}};
+    //    var result=$.extend(true,item,item1);
+    //    var result1=$.extend(false,item,item1);
+    //    结果：
+    //    Result={name：“olive”,age:23,sex:”gril”,address:{provice:”河南”,city:”北京”}};
+    //    Result1={name：“olive”,age:23,sex:”gril”,address:{ city:”北京”}};
+    //    说明：
+    //    以上结果说明，当参数为ture时，即为深拷贝，当子项item1中的子项有与item中的子项相同属性的值不一样时，item1中子项的值会将item子项中的值给覆盖，当子项item1的属性跟item中的属性不同时，会与item进行合并。
+    //    当参数为false时，子项item1中的子项中与item中的子项属性相同时，item1中子项的属性值会将item中的值给完全覆盖。
+    //
+    //    $.extend(item)
+    //    该方法是将item合并到Jquery的全局对象中去，相当于为Jquery全局对象添加了一个
+    //    静态方法（对应这里的静态方法，当然还有实例方法，在后边有介绍）。
+    //    示例：
+    //    $.extend({SayHello:function(value){alert(“hello “+value);}});
+    //    这样写过之后，就可以直接调用SayHello方法：
+    //    $.SayHello(“Olive”);
+    //    说明：该方法相当于为Jquery类添加了新的方法。
+    //
+    //
+    //    $.fn.extend(item)
+    //    上边提到的$.extend(item)说是为Jquery类添加了静态方法，那么这里的$.fn.extend(item
+    //    )就是为每一个实例添加一个实例方法了。
+    //    示例：
+    //    $.fn.extend({hello:function(value){alert(“hello “+value);}});
+    //    这样写过之后，在获取每一个示例之后，都可以调用该方法：
+    //    $(“#id”).hello(“Olive”);
+</script>
+
+</body>
+</html>

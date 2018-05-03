@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>递归</title>
+</head>
+<body>
+<script>
+    var arr = [
+        {"num1": 1, "num2": 2, "num3": {"num1": 1, "num2": 2, "num3": 3}},
+        {"num1": 1, "num2": 2, "num3": 3}
+    ];
+
+    function sum(data) {
+        var summary=0;
+        for (var i = 0; i < data.length; i++) {
+            var obj = data[i];
+            for(var j in obj){
+               console.log(j);
+                console.log(obj[j]);
+
+                summary+=obj[j];
+                console.log(summary);
+            }
+        }
+    }
+    sum(arr);
+</script>
+</body>
+</html>

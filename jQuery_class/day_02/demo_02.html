@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/1.jpg" alt="" id='image'>
+    <script src='js/jQuery.js'></script>
+    <script>
+        //  需求： 取出img的src屬性值？
+        //        将img的src属性值设置成'2.jpg'
+
+        // js
+        let img = document.getElementsByTagName('img')[0];
+
+        // img.src = "img/2.jpg"
+        // img.setAttribute('src', 'img/2.jpg')
+        // console.log(img.getAttribute('src'));
+
+        // jQuery
+        // console.log($('#image').attr('src'));
+        // $('#image').attr('src', 'img/2.jpg')
+        // console.log($('#image').attr('src'));
+    </script>
+</body>
+
+</html>

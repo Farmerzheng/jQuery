@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag</title>
+</head>
+<style>
+*{
+    margin:0;
+    padding:0
+}
+    div{
+        width:100px;
+        height:100px;
+        background:red;
+        cursor:pointer;
+        position:absolute;
+        left:100px;
+        top:100px
+    }
+</style>
+<body>
+<div></div>
+</body>
+<script src="../demo/lib/jQuery%201.12.3.min.js"></script>
+<script>
+
+
+        var divX=0;
+        var divY=0;
+
+        $("div").on("mousedown",function(e){
+
+            // console.log(e)
+
+            console.log($(this).offset().left,$(this).offset().top);
+
+            divX=e.pageX-$(this).offset().left;
+            divY=e.pageY-$(this).offset().top;
+
+            $(document).on("mousemove",function(ev){
+
+                $("div").css("left",ev.pageX-divX);
+                $("div").css("top",ev.pageY-divY);
+
+            });
+
+            $(document).on("mouseup",function(){
+                $(document).off();
+            });
+
+            // return false;
+        });
+
+
+
+</script>
+</html>

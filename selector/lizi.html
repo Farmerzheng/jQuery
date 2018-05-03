@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jQuery%201.12.3.min.js"></script>
+</head>
+<style>
+	#wraper{
+		width:500px;
+		height:100px;
+		background: red;
+	}
+	.child{
+		width:80px;
+		height:80px;;
+		background: yellow;
+		float:left;
+		margin:10px;
+	}
+</style>
+<body>
+	<div id="wraper">
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+	</div>
+	<script>
+		var yellowDiv=$(".child");
+		
+		// for(var i=0;i<yellowDiv.length;i++){
+
+		// 	yellowDiv.eq(i).hover(
+		// 		function(){
+  //                     console.log(1);
+
+  //                     $(this).css("background","orange")
+
+		// 	   },function(){
+  //                       console.log(2);
+  //                     $(this).css("background","yellow")
+		// 	   })
+		// }
+
+		yellowDiv.each(function(index,element){
+
+			console.log(index,element);
+
+              // $(element).mouseover(function(){
+
+              // 	$(this).css("background","orange")
+
+              // }).mouseout(function(){
+
+              // 	$(this).css("background","yellow")
+              // })   
+
+                   $(element).mouseover(function(){
+
+              	$(this).css("background","orange").siblings().css("background","yellow")
+
+              })
+
+		})
+	</script>
+</body>
+</html>

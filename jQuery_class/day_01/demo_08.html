@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box_item {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        display: inline-block;
+        margin: 10px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="box_item"></div>
+        <div class="box_item"></div>
+        <div class="box_item"></div>
+        <div class="box_item"></div>
+        <div class="box_item"></div>
+        <div class="box_item"></div>
+    </div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        let box_item_arr = $('.box_item');
+        for (let i = 0; i < box_item_arr.length; i++) {
+            box_item_arr.eq(i).on("mouseenter", mouseenterHandler);
+        }
+
+        function mouseenterHandler() {
+            // this---->DOM
+            // $(this) --->jQuery
+            // siblings()--->获取jQuery对象的兄弟元素
+            // css 方法既可以操作单个的jQuery对象也可以操作一个jQuery对象数组
+            $(this).siblings().css({
+                'background-color': 'pink'
+            });
+
+            $(this).css({
+                'background-color': 'blue'
+            })
+        }
+    </script>
+</body>
+
+</html>

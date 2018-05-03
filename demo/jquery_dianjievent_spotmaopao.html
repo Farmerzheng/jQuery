@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>防冒泡点击事件</title>
+    <script type="text/javascript" src="lib/jquery 1.12.3.min.js"></script>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            color: #ffffff;
+            font-size: 40px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">出现div1</button>
+    <button id="btn2">出现div2</button>
+    <button id="btn3">出现div3</button>
+    <div id="box">我忽隐忽现</div>
+    <!--<script>
+    //面向过程的编程思维
+        var oBtn=document.getElementsByTagName("button")[0];
+        var div1=document.getElementById("box");
+        var flag=true;
+        oBtn.onclick=function(stop){
+            stop.stopPropagation();
+            if(flag){
+                div1.style.display="none";
+                flag=!flag
+            }else{
+                div1.style.display="block";
+                flag=!flag
+            }
+        };
+        document.onclick=function(){
+            div1.style.display="none";
+            flag=false;
+        }
+    </script>-->
+
+   <!-- <script>
+   
+    //  面向对象的编程方式
+        var obj={
+            init:function(){//初始化调用
+                this.bindEvent();
+            },
+            button:document.getElementById("btn1"),
+            box:document.getElementById("box"),
+            flag:true,
+            bindEvent:function(){//绑定事件
+                this.buttonEvent();
+                this.documentEvent();
+            },
+            buttonEvent:function(){
+                var this_self=this;
+                this.button.onclick=function(stop){
+                    stop.stopPropagation();
+                    /*event.stopPropagation();*/     //阻止冒泡
+                    if(this_self.flag){
+                        this_self.box.style.display="none";
+                        this_self.flag=!this_self.flag;
+                    }else{
+                        this_self.box.style.display="block";
+                        this_self.flag=!this_self.flag;
+                    }
+                }
+            },
+            documentEvent:function(){
+                var this_self=this;
+                document.addEventListener("click", function () {
+                    this_self.box.style.display = "none";
+                    this_self.flag = false;
+                })
+            }
+         /*   documentEvent:function(){
+                var this_self=this;
+                document.onclick=function(){
+                    this_self.box.style.display="none";
+                    this_self.flag=false;
+                }
+            }*/
+        };
+        obj.init();
+        var obj2=Object.create(obj);
+        obj2.button=document.getElementById("btn2");
+        obj2.init();
+        var obj3=Object.create(obj);
+        obj3.button=document.getElementById("btn3");
+        obj3.init();
+    </script>-->
+    <script>
+        //面向对象的jquery
+     var obj={
+         box:$("#box"),  //获取div
+         btn:$("#btn1"),  //获取按钮
+         flag:true,
+         init:function(){  //初始化回调
+            this.bindevent();
+         },
+         bindevent:function(){ //绑定事件
+             this.btneventclick();
+             this.documontevent();
+         },
+         btneventclick:function(){  // 单击按钮事件
+             var self=this;  //指针指向obj
+             this.btn.click(function(stop){
+                 stop.stopPropagation(); // 阻止冒泡
+                 if(self.flag){   //( 判断思维:如果是true，隐藏div  如果是flase，显示div)
+                     self.box.css("display","none");
+                     self.flag=!self.flag
+                 }else{
+                     self.box.css("display","block");
+                     self.flag=!self.flag
+                 }
+             })
+         },
+         documontevent:function(){  // 单击docunmont事件
+             var self=this;     //隐藏div  改成flase
+             $(document).click(function(){
+                 self.box.css("display","none");
+                 self.flag=false;
+             })
+         }
+     };
+        obj.init();
+     //第二个按钮继承
+        var objbtn2 =Object.create(obj);
+        objbtn2.btn=$("#btn2");
+        objbtn2.init();
+     //第三个按钮继承
+        var objbtn3=Object.create(obj);
+        objbtn3.btn=$("#btn3");
+        objbtn3.init();
+    </script>
+</body>
+</html>

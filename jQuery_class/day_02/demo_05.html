@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script src='js/jQuery.js'></script>
+    <script>
+        // 
+        // offset().left    offset().top      //对象距离屏幕的距离
+        // position().left    position().top    //取得对象的left值
+
+
+        //获得滚动条距离顶端的距离 ?
+
+        // 滚动条滚动，在控制台打印这个距离
+
+        //js
+        // function getScrollTop() {
+        //     // 声明变量
+        //     var scrollTop = 0;
+
+        //     // 浏览器兼容性处理
+        //     if (document.documentElement && document.documentElement.scrollTop) {
+        //         scrollTop = document.documentElement.scrollTop;
+        //     } else if (document.body) {
+        //         scrollTop = document.body.scrollTop;
+        //     }
+
+        //     // 将变量返回
+        //     return scrollTop;
+        // }
+
+        // 滚动条滚动的事件
+        // 滚动条滚动就会触发这个事件
+        // window.onscroll = function() {
+        //     console.log(getScrollTop());
+        // }
+
+        // jQuery
+
+        $(document).scrollTop()
+
+        // 事件处理函数什么时候会调用？
+        // 事件被触发是就会调用
+
+        $(window).on('scroll', function() {
+            // 滚动条滚动就会调用此函数
+            console.log($(document).scrollTop());
+        })
+    </script>
+</body>
+
+</html>

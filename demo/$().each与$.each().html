@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #wraper {
+        width: 500px;
+        height: 100px;
+        background: red;
+        clear: both;
+    }
+
+    .child {
+        width: 80px;
+        height: 80px;
+        background: yellow;
+        margin: 10px;
+        float: left;
+    }
+</style>
+<body>
+<div id="wraper">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+    <div class="child">4</div>
+    <div class="child">5</div>
+</div>
+<script src="lib/jQuery%201.12.3.min.js"></script>
+<script>
+    //    .each 对数组中的每一个元素进行遍历，参数为函数
+    $(".child").each(function (index,element) {
+//        //对数组中的每一元素进行操作
+////        $(this) 指数组中每一次遍历的jQuery对象
+////        this 指数组中每一次遍历的jQuery对象对应的dom对象
+////        mouseover 是jQuery对象的一个方法，鼠标移入方法
+////        siblings() 选取对象的其他兄弟元素
+//
+//        console.log(index,element);
+
+        $(this).mouseover(function () {
+//            $(this).css("background", "blue").siblings().css("background", "yellow");
+            console.log(index);
+        });
+//
+    });
+
+    //    .each 对数组中的每一个元素进行遍历，参数为函数
+//    $(".child").(function () {
+        //对相应的数组中的每一元素进行操作
+//        $(this) 只数组中每一次遍历的jQuery对象
+//        this 只数组中每一次遍历的jQuery对象对应的dom对象
+//        mouseover 是jQuery对象的一个方法，鼠标移入方法
+//        siblings() 选取对象的其他兄弟元素
+
+//        $(this).mouseover(function () {
+//            $(this).css("background", "blue").siblings().css("background", "yellow");
+//        });
+
+//    });
+</script>
+</body>
+</html>

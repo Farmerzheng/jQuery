@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jQuery%201.12.1.js"></script>
+</head>
+<style>
+    .red{
+        width: 200px;
+        height: 200px;
+        background: greenyellow;
+        color:red;
+    }
+</style>
+<body>
+<button id="btn">隐藏</button>
+<div id="div1" class="red"></div>
+<script>
+    $('document').ready(function(){
+
+        //定义变量，判断div显示与隐藏
+        var flag=true;
+
+        //点击按钮
+        $('#btn').click(function(){
+
+            if(flag){
+                $('.red').fadeOut();
+                $(this).text('显示');
+                flag=false;
+            }else{
+                $('.red').fadeIn();
+                $(this).text('隐藏');
+                flag=true;
+            }
+        });
+    })
+</script>
+</body>
+</html>

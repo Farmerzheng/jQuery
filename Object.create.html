@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Object.create（obj）实现原理
+    function Create(obj){
+        function Simple(){
+
+        }
+        Simple.prototype=obj;
+        var simple=new Simple();
+        return simple;
+    }
+
+    var person={name:"zhangsan",age:"18"}
+    var person1=Create(person)
+    console.log(person1);
+</script>
+</body>
+</html>

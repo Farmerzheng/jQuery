@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="father" style="width:800px;height:800px;background:pink;">
+    <div class="div2" style="width:100px;height:100px;background:red;margin:10px;">1</div>
+    <div class="div2" style="width:100px;height:100px;background:red;margin:10px;">2</div>
+    <div class="div2" style="width:100px;height:100px;background:red;margin:10px;">3</div>
+    <div class="div2" style="width:100px;height:100px;background:red;margin:10px;">4</div>
+</div>
+<script src="jQuery%201.12.3.min.js"></script>
+<script>
+    // var oFather=document.getElementById("father");
+
+    //注意参数顺序，第一个为事件名称，第二个为绑定的子元素
+    $("#father").delegate(".div2","click",function(){
+        alert($(this).text())
+    });
+
+
+    var oDiv5=$('<div class="div2" style="width:100px;height:100px;background:yellow;margin:10px;">5</div>');
+
+    $("#father").append(oDiv5);
+
+</script>
+</body>
+</html>

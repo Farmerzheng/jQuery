@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    
+    .box1 {
+        border: 1px solid blue;
+    }
+    
+    .box2 {
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <div id='box' class="box1 box2"></div>
+    <button> 点击</button>
+    <script src='js/jQuery.js'></script>
+    <script>
+        let btn = document.getElementsByTagName('button')[0];
+        // 需求 : 得到盒子的宽高？
+        // 需求 ： 为#box添加一个 box1 类
+        // 需求 ： 为#box再添加一个 box2 类
+        // 需求 ： 移除#box的 box1 类
+        // 需求 ： 点击按钮 ， 动态添加或者移除box1 类
+        // 需求 ：判断#box当中是否有 box1类
+
+        // js
+        let box = document.getElementById('box');
+        // console.log(box.offsetWidth, box.offsetHeight)
+        // box.className = 'box1';
+        // box.className = 'box1 box2'
+        // box.className = 'box2'
+        // btn.onclick = function() {
+        //     if (box.className == 'box2') {
+        //         box.className = 'box1 box2'
+        //     } else {
+        //         box.className = 'box2'
+        //     }
+        // }
+
+        // let className = box.className;
+
+        // let regExp = /box1/g;
+
+        // let flag = regExp.test(className);
+
+        // console.log(flag);
+
+
+
+
+
+        // jQuery
+        // console.log($('#box').width(), $('#box').height())
+        // $('#box').addClass('box1');
+        // $('#box').addClass('box1 box2');
+        // $('#box').removeClass('box1');
+        // $('button').on('click', function() {
+        //  toggleClass 动态添加或者移除类
+        // $(box).toggleClass('box1')
+        // })
+
+        // let flag = $('#box').hasClass('box1');
+        // console.log(flag);
+        
+    </script>
+</body>
+
+</html>

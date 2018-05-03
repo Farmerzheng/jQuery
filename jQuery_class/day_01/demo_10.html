@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="goods">
+        <span>白菜</span>
+        <span>单价</span>
+        <span class="price">34</span>
+        <button class="add">+</button>
+        <span class="num">0</span>
+        <button class="minus">-</button>
+        <span class="total_price">0</span>
+    </div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        let addBtn = $('.add');
+        let minusBtn = $('.minus');
+        let num = $('.num');
+        let price = $('.price');
+        let totalPrice = $('.total_price');
+        addBtn.on('click', addHandler);
+        minusBtn.on('click', minusHandler);
+
+        function addHandler() {
+
+            let number = parseInt(num.text());
+
+            num.text(number + 1);
+
+            changeTotalPrice();
+        }
+
+        function minusHandler() {
+            let number = num.text();
+
+            num.text(number - 1);
+            changeTotalPrice();
+        }
+
+        function changeTotalPrice() {
+            let totalNum = num.text() * price.text();
+            totalPrice.text(totalNum);
+        }
+    </script>
+</body>
+
+</html>

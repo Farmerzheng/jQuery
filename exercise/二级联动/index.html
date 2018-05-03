@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="tour.js"></script> -->
+</head>
+<body>
+<div>
+	<select name="city" id="city">
+		<option>请选择城市</option>
+		<option>北京</option>
+		<option>上海</option>
+	</select>
+	<select name="university" id="university">
+	
+	</select>
+</div>
+<script type="text/javascript">
+
+        var city=$("#city");
+
+		$.ajax({
+	
+		   url:"http://app.sencha.com.cn/soya/apps/mooc/server/?action=city.list",
+		   success:function(response){
+
+            console.log(response);
+
+            var optionArr=response.data;
+
+            for(let i=0;i<optionArr.length;i++){
+
+            	var optionText=optionArr[i].city;
+
+            	var option=$("<option></option>");
+
+            	option.text(optionText);
+
+            	
+            	city.append(option);
+
+            }
+
+		   },
+
+		   error:function(error){
+
+		   },
+
+		   method:"GET",
+		   dataType:"jsonp"
+
+	})
+
+	city.change(function(){
+
+			// console.log(city.find("option:selected").val());
+
+			var value=city.find("option:selected").val()
+
+					$.ajax({
+					   
+					   url:"http://app.sencha.com.cn/soya/apps/mooc/server",
+					   data:{
+					   	action:"depart.searchByCity",
+					   	city:value
+					   },
+					  
+					   success:function(response){
+
+			            console.log(response);
+
+			            $("#university").html("");
+
+			            var univercityArr=response.data;
+
+			            for(let i=0;i<univercityArr.length;i++){
+
+			            	var optionText=univercityArr[i].university;
+
+			            	var option=$("<option></option>");
+
+			            	option.text(optionText);
+			            	
+			            	$("#university").append(option);
+			            }
+			           
+					   },
+					   error:function(error){
+
+					   },
+
+					   method:"GET",
+
+					   dataType:"jsonp"
+
+					 })
+					
+		})	
+
+		
+
+
+			// $("#city").change(function(){ 
+			//  var value=$("#city").find("option:selected") .val()  
+			// })
+
+			// var citys=document.getElementById("city");
+			// citys.onchange=function(){
+			// 	var index=citys.selectedIndex;//选中索引
+			// 	var value = citys.options[index].value; // 选中值
+			// 	console.log(value)
+			// }
+
+
+</script>
+
+</body>
+</html>

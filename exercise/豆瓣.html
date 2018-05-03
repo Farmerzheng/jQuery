@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">             
+    <title>Title</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+
+
+<style>
+    dl{
+        border-bottom:1px dotted red;
+    }
+    #list dd{
+        width:100px;
+        height: 150px;
+    }
+    #list dd img{
+        width:100px;
+        height: 150px;
+    }
+    ul{
+        list-style: none;
+        width: 224px;
+        height:30px;
+        padding: 0px;
+        margin:0 auto;
+    }
+    ul li{
+        float: left;
+        width: 20px;
+        height:20px;
+        border: 1px solid #666;
+        margin: 5px;
+    }
+    ul li a{
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        width: 20px;
+        height:20px;
+        line-height: 20px;
+    }
+    ul li a:hover{
+        color: red;
+        cursor: pointer;
+    }
+    ul .four{
+        border:none;
+
+    }
+</style>
+<body>
+<input type="text" id="q">
+<input type="button" id="btn" value="搜索">
+<p id="msg">asdf</p>
+<hr>
+<div id="list">
+</div>
+<ul id="page">
+    <!--<li><a href="">&lt;</a></li>-->
+    <!--<li><a href="">1</a></li>-->
+    <!--<li><a href="">2</a></li>-->
+    <!--<li><a href="">3</a></li>-->
+    <!--<li class="four"><a href="">&hellip;</a></li>-->
+    <!--<li><a href="">5</a></li>-->
+    <!--<li><a href="">&gt;</a></li>-->
+</ul>
+</body>
+<script>
+     var index=1;
+     
+    function fn1(data){
+
+        console.log(data);
+       
+        // if(index>1){
+
+        //     return;
+        // }
+        // console.log(index);
+        //  index++;
+
+        var oText=document.getElementById('q');
+        var oMsg=document.getElementById('msg');
+        var oList=document.getElementById('list');
+        var oPage=document.getElementById('page');
+
+        oMsg.innerHTML=data.title.$t+':'+data['opensearch:totalResults'].$t+'条';
+        var html='';
+        var arr=data.entry;
+
+        for(var i=0;i<arr.length;i++){
+           html+='<dl><dt>'+arr[i].title.$t+'</dt><dd><img src="'+arr[i].link[2]['@href']+'"></dd></dl>';
+        }
+
+        oList.innerHTML=html;
+
+        var max_results=10;
+
+        var pageNum=data['opensearch:totalResults'].$t;
+
+        var pageArr=parseInt(pageNum/max_results)+1;
+
+        var page_html='';
+
+        for (var j=1;j<pageArr+1;j++){
+//            href="'+'http://api.douban.com/book/subjects?q='+oText.value+'&alt=xd&callback=fn1&start-index='+max_results*j+'&max-results='+max_results+'"
+            page_html+='<li><a>'+j+'</a></li>'
+        }
+
+        oPage.innerHTML=page_html;
+
+           var a=0;
+           
+        for( a=0;a<pageArr;a++){
+
+            oPage.childNodes[a].onclick=function(){
+                alert(this.index);
+                //跨域请求
+                var oScript=document.createElement('script');
+                oScript.src='http://api.douban.com/book/subjects?q='+oText.value+'&alt=xd&callback=fn1&start-index='+a+'&max-results=10';
+                document.getElementsByTagName('body')[0].appendChild(oScript);
+            }
+        }
+
+    }
+
+    //接口http://api.douban.com/book/subjects?q='+oText.value+'&alt=xd&callback=fn1&start-index=(当前页*每页显示的条数)&max-results=(每页显示条数)；
+
+    window.onload=function(){
+        var oText=document.getElementById('q');
+        var oBtn=document.getElementById('btn');
+        var oMsg=document.getElementById('msg');
+        var oList=document.getElementById('list');
+
+        //点击按钮
+        oBtn.onclick=function(){
+            //跨域请求
+            var oScript=document.createElement('script');
+            oScript.src='http://api.douban.com/book/subjects?q='+oText.value+'&alt=xd&callback=fn1&start-index=1&max-results=10';
+            document.getElementsByTagName('body')[0].appendChild(oScript);
+        }
+
+    }
+    </script>
+</html>

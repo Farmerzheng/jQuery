@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    .carousel {
+        width: 1200px;
+        height: 700px;
+        margin: 0 auto;
+    }
+    
+    .carousel_wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    
+    .carousel_item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    
+    .carousel_item:first-child {
+        display: block;
+    }
+    
+    .carousel_item a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .carousel_item a img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .active {
+        background-color: coral!important;
+    }
+    
+    .dot_list {
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 650px;
+        width: 100px;
+        height: 20px;
+    }
+    
+    .dot_item {
+        width: 20px;
+        height: 20px;
+        margin: 0 2px;
+        background-color: cornsilk;
+        border-radius: 50%;
+        float: left;
+    }
+</style>
+
+<body>
+    <div class="carousel">
+        <ul class="carousel_wrap">
+            <li class="carousel_item active">
+                <a href=""><img src="img/1.jpg" alt=""></a>
+            </li>
+            <li class="carousel_item">
+                <a href=""><img src="img/2.jpg" alt=""></a>
+            </li>
+            <li class="carousel_item">
+                <a href=""><img src="img/3.jpg" alt=""></a>
+            </li>
+            <li class="carousel_item">
+                <a href=""><img src="img/4.jpg" alt=""></a>
+            </li>
+        </ul>
+        <ul class="dot_list">
+            <li class="dot_item active"></li>
+            <li class="dot_item"></li>
+            <li class="dot_item"></li>
+            <li class="dot_item"></li>
+        </ul>
+    </div>
+    <script src='js/jQuery.js'></script>
+    <script>
+        let currentIndex = 0;
+        let list = $('.carousel_item');
+        let dotList = $('.dot_item');
+
+
+        function autoPlay() {
+            setInterval(function() {
+
+                // 计算当前索引
+                currentIndex++;
+                if (currentIndex == 4) {
+                    currentIndex = 0;
+                }
+                // 改变图片
+                list.eq(currentIndex).fadeIn();
+                list.eq(currentIndex).siblings().fadeOut();
+
+                // 改变小圆点
+                dotList.eq(currentIndex).addClass('active');
+                dotList.eq(currentIndex).siblings().removeClass('active');
+
+            }, 1000);
+        }
+        autoPlay();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px
+        }
+
+        div {
+            width: 1000px;
+            height: 350px;
+            position: relative;
+            margin: 0px auto;
+            margin-top: 20px;
+
+        }
+
+        .img_list {
+            position: relative;
+            list-style: none;
+            width: 1000px;
+            height: 350px;
+        }
+
+        .img_list li {
+
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .img_list li img {
+            width: 1000px;
+            height: 350px;
+        }
+
+        .yuan_list {
+
+            position: absolute;
+            right: 10px;
+            top: 320px;
+        }
+
+        .yuan_list li {
+            z-index: 100;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background: yellow;
+            margin-left: 10px;
+            float: left;
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul class="img_list">
+        <li><img class="yi" src="01.jpg" alt=""></li>
+        <li><img src="02.jpg" alt=""></li>
+        <li><img src="03.jpg" alt=""></li>
+        <li><img src="04.jpg" alt=""></li>
+        <li><img src="05.jpg" alt=""></li>
+    </ul>
+    <ul class="yuan_list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+
+    //渐隐渐出开始
+
+    //当前显示图片的索引
+
+    var carousel={
+       init:function(){
+         this.autoPlay();
+         this.bindEvent();
+       },
+       bindEvent:function(){
+          this.imgHover();
+          this.dotHover();
+       },
+       dotHover:function(){
+        var self=this;
+
+          this.dot_list.on("mouseover", function () {
+
+            console.log($(this).index());
+
+               $(this).css("background", "red").siblings().css("background", "yellow");
+
+                clearInterval(self.timer);
+
+                self.img_list.eq ($(this).index()).stop().fadeIn().siblings().stop().fadeOut();
+
+           })
+
+       },
+       imgHover:function(){
+
+        var self=this;
+
+          this.img_list.hover(function () {
+
+                clearInterval(self.timer)
+
+            }, function () {
+
+                 console.log(1);
+                 self.autoPlay();
+
+            })
+       },
+       index:0,
+       img_list:$(".img_list li"),
+       dot_list:$(".yuan_list li"),
+       timer:null,
+       autoPlay:function(){
+          this.timer=setInterval(this.play,1000)
+       },
+       play:function(){
+
+        // console.log(this)
+        var self=carousel;
+
+         self.img_list.eq(self.index).fadeIn().siblings().fadeOut();
+
+         self.dot_list.eq(self.index).css("background", "red").siblings().css("background", "yellow");
+
+        self.index++;
+
+        if (self.index == 5) {
+            self.index = 0
+        }
+       },
+
+
+    }
+
+    carousel.init();
+
+    // var index = 0;
+
+    //自动播放函数
+    // var autoPlay = function () {
+
+       
+
+    // }
+
+   //  var timer = setInterval(autoPlay,1000)
+
+
+   //  $(" .img_list").hover(function () {
+
+   //      clearInterval(timer)
+
+   //  }, function () {
+
+   //      timer = setInterval(autoPlay, 1000)
+
+   //  })
+
+   //  //移入移出 pagenation
+
+
+   //  $(".yuan_list li").on("mouseover", function () {
+
+   //      $(this).eq($(".yuan_list li").index()).css("background", "red").siblings().css("background", "yellow");
+
+   //      clearInterval(timer);
+
+   //      $(".img_list li").eq ($(this).index()).stop(true,true).fadeIn().siblings().fadeOut();
+
+   // })
+</script>
+</body>
+</html>

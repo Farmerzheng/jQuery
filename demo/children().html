@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div class="wrap">
+    <span>1
+        <span style="border:10px solid">间接子节点</span>
+    </span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+</div>
+</body>
+<script src="lib/jQuery%201.12.3.min.js"></script>
+<script>
+    $("div").children().css("border","10px solid");
+</script>
+</html>
