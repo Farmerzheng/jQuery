@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .clearfix {
+        zoom: 1;
+    }
+    
+    .tabs {
+        margin-bottom: -20px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .tabs .tab_item {
+        float: left;
+        width: 100px;
+        height: 50px;
+        background-color: #666;
+        border: 1px solid #999;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        transition: 1s;
+        transform: translate(0px, 0px);
+    }
+    
+    .tab_item:hover {
+        transform: translate(0px, -10px);
+    }
+    
+    .content {
+        width: 306px;
+        height: 100px;
+        border: 1px solid #999;
+        position: relative;
+        z-index: 2;
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <ul class="tabs clearfix">
+        <li class="tab_item">light</li>
+        <li class="tab_item">sexy</li>
+        <li class="tab_item">tabs</li>
+    </ul>
+    <ul class="content"></ul>
+    <!-- 通过cdn的方式引入jQuery -->
+    <!-- 百度静态资源公共库 ：http://cdn.code.baidu.com/ -->
+    <!-- cdn 
+
+    cdn : 内容分发网络 （content delivery network）
+
+    的好处
+
+   网站的访问速度，只基于一点，那就是页面包含的内容传输到用户电脑的速度，
+
+   服务器搭的再好再完美，如果用户到服务器的链路之间有一段比较缓慢的话，整体速度也会被拉的十分差劲。
+
+   想象一下，你给公司做了个运行于公司内网的网站，一切运行良好，分布式部署也已搭建完毕，
+
+   一切都很完美。
+
+   后来，你公司运营良好，开了一个十分遥远的分公司，
+
+   你们的内网也同时连了过去（对，就是那种很直接的搭了几条网线就把两个局域网连成一个局域网的黑科技）。
+
+   但是因为太远了线节点太多了，分公司访问公司的系统十分缓慢，
+
+
+   这时候你就愁啊，这可咋办？那不行就在分公司那边部署一套内容缓存好了，内容进行同步，这样至少分公司的网页访问速度能提升很多，
+
+
+   你也可以立功升职加薪了。
+
+   紧接着，因为你的出色表现，你们公司扩展十分厉害，在全国各地都建立了分公司，
+
+   你又开始愁了，这不能每个分公司都搭一套啊，累得慌啊。
+
+   思来想去，那就
+   华东一套
+   华北一套
+   华南一套
+   东北一套
+   这样分吧，
+
+   然后搭一些分发服务器，
+
+   接入访问地址，
+   然后跳转到就近的内容缓存服务器进行内容读取
+
+   ，OK，又到了升职加薪的时刻了~对，
+
+   到这里，你已经完成了一套简易CDN的建设。
+
+
+
+   -->
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        let data = [
+
+                {
+                    content: "Some text about Light sit amet, consectetur adipisicing elit. Pariatur modi quod quo iure recusandae eligendi q.t, consectetur adipisicing elit. Pariatur"
+                }, {
+                    content: "Sexy sexy consectetur adipisicing elit. Pariatur modi quod quo iure recusandae eligendi q.t, consectetur adipisicing elit. Pariatur modi quod quo iureq"
+                }, {
+                    content: "Tabs , consectetur adipisicing elit. Pariatur modi quod quo iure recusandae eligendi q.t, consectetur adipisicing elit. Pariatur modi quod quo iureq"
+                },
+
+            ]
+            // 可以直接为jQuery数组挂接事件
+
+        // $('.tab_item') 是一个jQuery对象的数组
+
+        $('.tab_item').on('click', tabItemClickHandler);
+
+        // 点击选项卡的事件处理函数
+        function tabItemClickHandler() {
+
+            // this --> DOM 
+            // $(this) --> jQuery
+            // $(this).index() --->jQuery对象的索引
+
+            // 获取对应选项卡里面的内容
+            let content = data[$(this).index()].content;
+
+            // text() <---> innerText
+            // html() <---> innerHTML
+            $('.content').text(content);
+
+        }
+    </script>
+</body>
+
+</html>

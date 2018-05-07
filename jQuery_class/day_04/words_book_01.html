@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    
+    #input_box_wrap {
+        background: blue;
+        width: 300px;
+        height: 340px;
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -170px;
+        display: none;
+    }
+</style>
+
+<body>
+    <button id="add">增加</button>
+    <table border=1 class="box">
+        <thead>
+            <tr class="title">
+                <th>序号</th>
+                <th>单词</th>
+                <th>音标</th>
+                <th>解释</th>
+                <th>时间</th>
+                <th>分类</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody class="word_body">
+
+        </tbody>
+
+    </table>
+    <button class="more">更多单词</button>
+    <div id="input_box_wrap">
+        <div id="input_box">
+            <div class="input_box_top">
+                <h1>添加单词</h1>
+                <span id="close"></span>
+            </div>
+            <form action="">
+                <span>单词:</span>
+                <div class="single_line">
+                    <input type="text" id="word">
+                </div>
+                <span>音标:</span>
+                <div class="single_line">
+                    <input type="text" id="pronounce">
+                </div>
+                <span>解释:</span>
+                <div class="many_line">
+                    <textarea id="description"></textarea>
+                </div>
+                <span>分类:</span>
+                <div class="single_line">
+                    <input type="text" id="wordtype">
+                </div>
+                <input type="button" value="提交" id="submit">
+            </form>
+        </div>
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // pageIndex 是页码，默认展示第一页
+        let pageIndex = 1;
+
+        // 获取 增加按钮
+        let addBtn = $('#add');
+
+        // 获取输入单词的对话框
+        let inputBox = $('#input_box_wrap');
+
+        // 获取提交按钮
+        let submitBtn = $('#submit');
+
+        // 获取输入框里面的input
+        let wordInput = $('#word');
+        let descriptionInput = $('#description');
+        let pronounceInput = $('#pronounce');
+        let wordtypeInput = $('#wordtype')
+
+        // 定义全局变量，存储当前页面的单词当中最大的id值
+        let id = 0;
+
+
+        addBtn.on('click', showInputBox);
+
+        // 展示输入单词的对话框
+        function showInputBox() {
+            inputBox.fadeIn();
+            // inputBox.show();
+        }
+
+        // 为提交按钮添加点击事件
+        submitBtn.on('click', submitHandler);
+
+
+        // 定义全局变量，储存用户输入的内容
+        let userInput = null;
+
+        function submitHandler() {
+
+            // 获取用户输入的值
+            userInput = {
+                word: wordInput.val(),
+                pronounce: pronounceInput.val(),
+                description: descriptionInput.val(),
+                wordtype: wordtypeInput.val()
+            }
+
+            $.ajax({
+                method: "GET",
+                url: "http://app.sencha.com.cn/soya/apps/testdb/server/",
+                dataType: "jsonp",
+                data: {
+                    action: "wordList.insert",
+                    word: userInput.word,
+                    pronounce: userInput.pronounce,
+                    description: userInput.description,
+                    wordtype: userInput.wordtype
+                },
+                success: function(responseText) {
+                    // 隐藏输入框
+                    inputBox.fadeOut();
+
+                    // 向数据库插入成功后会执行此函数
+
+                    // 只有数据库内容改变了才能改变页面
+
+                    // 改变页面显示（渲染页面）
+                    renderPage();
+                },
+                error: function() {
+
+                }
+
+            })
+        }
+
+        function renderPage() {
+            // 数据库当中插入了单词，页面当中也要对应显示插入的单词
+
+            // 将用户输入的内容展示到页面上
+
+            // userInput 存放着用户输入的内容
+
+            // 将userInput的内容展示的页面上
+
+            // userInput.id = parseInt(id) + 1;
+
+            // userInput.dateLine = new Date();
+
+            // userInput 对象对应着一行内容
+
+            // 创建一行
+            let tr = $('<tr></tr>');
+
+
+            // 7 个td内容  
+            // id word pronounce description date wordtype edit
+            let dataArr = [];
+            dataArr[0] = parseInt(id) + 1;
+            dataArr[1] = userInput.word;
+            dataArr[2] = userInput.pronounce;
+            dataArr[3] = userInput.description;
+            dataArr[4] = new Date();
+            dataArr[5] = userInput.wordtype;
+            dataArr[6] = 'edit';
+
+
+            //    创建7个td并添加到tr
+            for (let i = 0; i < dataArr.length; i++) {
+
+                // 每次循环td的内容都不一样
+
+                //创建存放用户id的td
+                let td = $('<td></td>');
+
+                if (dataArr[i] == 'edit') {
+                    // 创建删除和修改按钮
+                    let deleteBtn = $('<button>删除</button>');
+
+                    // 为新创建的删除按钮添加事件
+                    deleteBtn.on('click', deleteWordHandler);
+                    let modifyBtn = $('<button>修改</button>');
+                    td.append(deleteBtn);
+
+
+                    td.append(modifyBtn);
+
+                } else {
+                    // 将用户的id放入td当中
+                    td.text(dataArr[i]);
+                }
+
+
+
+                // 将td天加到tr当中
+                tr.append(td);
+            }
+
+            // 经过循环，我们创建好了tr
+            // 将tr添加到页面
+
+            $('.word_body').prepend(tr);
+
+        }
+
+
+
+        // 查询单词
+        function queryWord(page) {
+            $.ajax({
+                method: "GET",
+                url: "http://app.sencha.com.cn/soya/apps/testdb/server/",
+                dataType: "jsonp",
+                data: {
+                    action: "wordList.list",
+                    page: page,
+                    perPage: 5
+                },
+                success: function(responseText) {
+                    show_word(responseText.data);
+                    // console.log(responseText)
+                },
+                error: function() {
+
+                }
+            })
+        }
+
+        // 进入页面,展示第一页单词
+        queryWord(pageIndex);
+
+
+        let str = '';
+
+        function show_word(dataArr) {
+
+            for (let i = 0; i < dataArr.length; i++) {
+                str += `<tr class='title'>
+                    <td>${dataArr[i].id}</td>
+                    <td>${dataArr[i].word}</td>
+                    <td>${dataArr[i].pronounce}</td>
+                    <td>${dataArr[i].description}</td>
+                    <td>${dataArr[i].dateLine}</td>
+                    <td>${dataArr[i].wordtype}</td>
+                    <td><button class='modifyBtn'>修改</button><button class='deleteBtn'>删除</button></td>
+                    </tr>`
+            }
+
+            // 將单词当中最大的id值存储起来
+            id = dataArr[0].id;
+
+            // word_body.innerHTML = str;
+
+            $('.word_body').html(str)
+
+            // 为所有删除按钮添加点击事件
+            // let deleteBtnArr = word_body.querySelectorAll(".deleteBtn");
+            let deleteBtnArr = $('.deleteBtn');
+
+            // let modifyBtnArr = word_body.querySelectorAll(".modifyBtn");
+
+            for (let i = 0; i < deleteBtnArr.length; i++) {
+                // deleteBtnArr[i].addEventListener("click", deleteWordHandler);
+                deleteBtnArr.on('click', deleteWordHandler);
+
+                //     modifyBtnArr[i].addEventListener("click", modifyWordHandler);
+            }
+        }
+
+        // 点击更多单词按钮，加载下一页
+
+        $('.more').on('click', moreWordHandler);
+
+        function moreWordHandler() {
+            pageIndex++;
+            queryWord(pageIndex);
+        }
+
+
+        // 删除单词
+        function deleteWordHandler(event) {
+            // event = event || window.event;
+            // let id = event.target.parentNode.parentNode.children[0].innerText;
+
+            // console.log(event, event.target);
+
+            let idBox = $(event.target).parent().parent().children().eq(0);
+
+            let id = idBox.text();
+
+
+
+            // 删除数据库当中对应的单词
+            $.ajax({
+                    method: "GET",
+                    url: "http://app.sencha.com.cn/soya/apps/testdb/server/",
+                    dataType: "jsonp",
+                    data: {
+                        action: "wordList.delete",
+                        id: id
+                    },
+                    success: function(responseText) {
+                        // console.log(id + "删除成功")
+                        // 修改页面
+                        // event.target.parentNode.parentNode.remove();
+                        idBox.parent().remove();
+
+                    },
+                    error: function() {
+
+                    }
+
+                })
+                // 数据库中的单词如果删除成功，我们再删除页面的单词
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // jQuery 事件是对原生js事件的封装
+        //  jQuery 有的事件原生js一定也有
+        // 原生js 有的事件jQuery不一定有
+        // jQuery 不可能把所有原生js事件都进行封装
+        // jQuery 只是封装了一部分比较常用的 js事件
+
+        // let box = $('.box');
+        // 单击事件
+        // box.on('click', function() {
+        //     console.log('click')
+        // });
+        // 双击事件
+        // box.on('dblclick', function() {
+        //     console.log('dblclick')
+        // });
+
+        // mouseenter(不会触发子元素) <--->  mouseover(会触发子元素)
+        // mouseleave(不会触发子元素) <---> mouseout(会触发子元素)
+
+        //  键盘事件一般挂接在document对象上
+        // 键盘按下
+        // $(document).on('keydown', function() {
+        // console.log('keydown')
+        // })
+
+        // 需求： 用户到底按下了哪个键？
+
+        // 通过事件对象的keyCode属性能够判断用户究竟按下了哪个键
+        // $(document).on('keydown', function(event) {
+        //     //  event = event||window.event;  事件对象的兼容性代码
+        //     // jQuery 对原生js的事件对象进行了封装，不会有浏览器兼容性问题
+
+        //     // console.log(event);
+
+        //     switch (event.keyCode) {
+        //         case 87:
+        //             console.log('上');
+        //             break;
+        //         case 83:
+        //             console.log('下');
+        //             break;
+        //         case 65:
+        //             console.log('左');
+        //             break;
+        //         case 68:
+        //             console.log('右');
+        //             break;
+        //     }
+        // })
+
+        // keypress 键盘按下
+        // $(document).on('keypress', function() {
+        //     console.log('keypress')
+        // })
+
+        // keyup  键盘抬起
+        // $(document).on('keyup', function() {
+        //     console.log('keyup')
+        // })
+
+        // focus(输入框获取焦点事件)、blur(输入框失去焦点)、change(输入框内容改变的事件)
+
+        // 应用场景 ： 输入框失去焦点的时候我们需要进行正则表达式验证
+        //            百度下拉提示菜单应用的是keyup事件
+   
+        
+
+    </script>
+</body>
+
+</html>

@@ -22,6 +22,7 @@
         width: 1200px;
         height: 700px;
         margin: 0 auto;
+        position: relative;
     }
     
     .carousel_wrap {
@@ -76,6 +77,38 @@
         border-radius: 50%;
         float: left;
     }
+    
+    .btn {
+        position: absolute;
+        width: 1200px;
+        height: 50px;
+        left: 0;
+        top: 50%;
+        margin-top: -25px;
+    }
+    
+    .btn_item {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        line-height: 50px;
+        text-align: center;
+        background-color: blue
+    }
+    
+    .pull_left {
+        float: left;
+    }
+    
+    .pull_right {
+        float: right;
+    }
+    
+    .btn_item button {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
 </style>
 
 <body>
@@ -100,16 +133,102 @@
             <li class="dot_item"></li>
             <li class="dot_item"></li>
         </ul>
+        <ul class="btn">
+            <li class="btn_item pull_left"><button class="left_btn">左</button></li>
+            <li class="btn_item pull_right"><button class="right_btn">右</button></li>
+        </ul>
     </div>
     <script src='js/jQuery.js'></script>
     <script>
+        
+        // 当前图片的索引
         let currentIndex = 0;
+
         let list = $('.carousel_item');
         let dotList = $('.dot_item');
+        let timer = null;
+        let carousel = $('.carousel');
+        let leftBtn = $('.left_btn');
+        let rightBtn = $('.right_btn');
 
 
+        // 为carousel添加鼠标移入的事件处理函数
+        carousel.on('mouseover', mouseoverHandler);
+
+        // 为carousel添加鼠标移出的事件处理函数
+        carousel.on('mouseout', mouseoutHandler);
+
+        //循环为四个小圆点添加鼠标移入事件
+        for (let i = 0; i < dotList.length; i++) {
+            dotList.eq(i).on('mouseover', dotItemOverHandler)
+        }
+
+        // 为左右按钮添加点击事件
+        leftBtn.on('click', leftClickHandler);
+        rightBtn.on('click', rightClickHandler);
+
+        function leftClickHandler() {
+            currentIndex--;
+            if (currentIndex == -1) {
+                currentIndex = 3;
+            }
+            // 改变小圆点
+            changeTot();
+
+            // 改变图片
+            changeImg();
+        }
+
+        function rightClickHandler() {
+            currentIndex++;
+            if (currentIndex == 4) {
+                currentIndex = 0;
+            }
+            // 改变小圆点
+            changeTot();
+
+            // 改变图片
+            changeImg();
+        }
+
+        // 鼠标移入轮播图的事件处理函数
+        function mouseoverHandler() {
+            clearInterval(timer);
+        }
+
+        // 鼠标移出轮播图的事件处理函数
+        function mouseoutHandler() {
+            autoPlay();
+        }
+
+        //鼠标移入小圆点的事件处理函数
+        function dotItemOverHandler() {
+            // console.log(this, $(this), $(this).index());
+
+            currentIndex = $(this).index()
+
+            // 改变小圆点
+            changeTot();
+
+            // 改变图片
+            changeImg();
+        }
+
+        // 根据currentIndex改变小圆点的背景颜色 
+        function changeTot() {
+            dotList.eq(currentIndex).addClass('active');
+            dotList.eq(currentIndex).siblings().removeClass('active');
+        }
+
+        //根据currentIndex改变图片的背景颜色
+        function changeImg() {
+            list.eq(currentIndex).stop().fadeIn();
+            list.eq(currentIndex).siblings().stop().fadeOut();
+        }
+
+        // 自动播放
         function autoPlay() {
-            setInterval(function() {
+            timer = setInterval(function() {
 
                 // 计算当前索引
                 currentIndex++;
@@ -117,15 +236,14 @@
                     currentIndex = 0;
                 }
                 // 改变图片
-                list.eq(currentIndex).fadeIn();
-                list.eq(currentIndex).siblings().fadeOut();
+                changeImg();
 
                 // 改变小圆点
-                dotList.eq(currentIndex).addClass('active');
-                dotList.eq(currentIndex).siblings().removeClass('active');
-
+                changeTot();
             }, 1000);
         }
+
+        // 进入页面，需要自动播放
         autoPlay();
     </script>
 </body>

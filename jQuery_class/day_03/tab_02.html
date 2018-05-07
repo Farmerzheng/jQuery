@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .clearfix {
+        zoom: 1;
+    }
+    
+    .tabs {
+        margin-bottom: -20px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .tabs .tab_item {
+        float: left;
+        width: 100px;
+        height: 50px;
+        background-color: #666;
+        border: 1px solid #999;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        transition: 1s;
+        transform: translate(0px, 0px);
+    }
+    
+    .tab_item:hover {
+        transform: translate(0px, -10px);
+    }
+    
+    .content {
+        width: 306px;
+        height: 100px;
+        border: 1px solid #999;
+        position: relative;
+        z-index: 2;
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <ul class="tabs clearfix">
+        <li class="tab_item">light</li>
+        <li class="tab_item">sexy</li>
+        <li class="tab_item">tabs</li>
+    </ul>
+    <ul class="content"></ul>
+
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        let data = [
+
+            {
+                content: "Some text about Light sit amet, consectetur adipisicing elit. Pariatur modi quod quo iure recusandae eligendi q.t, consectetur adipisicing elit. Pariatur"
+            }, {
+                content: "Sexy sexy consectetur adipisicing elit. Pariatur modi quod quo iure recusandae eligendi q.t, consectetur adipisicing elit. Pariatur modi quod quo iureq"
+            }, {
+                content: "Tabs , consectetur adipisicing elit. Pariatur modi quod quo iure recusandae eligendi q.t, consectetur adipisicing elit. Pariatur modi quod quo iureq"
+            },
+
+        ]
+
+        // 获取选项卡按钮数组
+        let liArr = document.querySelectorAll(".tab_item")
+            // 获取承载内容的盒子
+        let content = document.querySelector('.content');
+        // 循环为选项卡按钮挂接点击事件
+        for (let i = 0; i < liArr.length; i++) {
+            liArr[i].addEventListener("click", function() {
+                // 获取到对应按钮的显示内容
+                let text = data[i].content;
+                // 将内容添加到盒子里面
+                content.innerText = text;
+            })
+        }
+    </script>
+</body>
+
+</html>

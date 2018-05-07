@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // 事件覆盖
+
+        let btn = document.querySelector('#btn');
+
+        // on方法挂接事件会存在事件覆盖
+        // btn.onclick = function() {
+        //     console.log(1)
+        // }
+
+        // btn.onclick = function() {
+        //     console.log(2);
+        // }
+
+        // addEventListener 不存在事件覆盖
+        // btn.addEventListener('click', function() {
+        //     console.log(1)
+        // })
+        // btn.addEventListener('click', function() {
+        //     console.log(2)
+        // })
+
+        // jQuery中的on方法不存在事件覆盖
+        // $(btn).on('click', function() {
+        //     console.log(1);
+        // })
+        // $(btn).on('click', function() {
+        //     console.log(2);
+        // })
+
+
+        // 原生js事件挂接的三种方式
+        // 1、行内挂接
+        // 2、on方法挂接
+        // 3、addEventListener
+
+        // jQuery事件挂接的方式(都不存在事件覆盖)
+        //$(btn).click(function() {}) 
+        //$(btn).on('click', function() {})
+    </script>
+</body>
+
+</html>

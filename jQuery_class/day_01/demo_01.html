@@ -30,30 +30,83 @@
 
 
 
-        // 回顾DOM对象的方法和属性
 
-        // getElementById();
-        // getElementsByTagName();
-        // getElementsByClassName();
-        // getElementsByName();
-        // querySelector();
-        // querySelectorAll();
-        // setAttribute();
-        // getAttribute();
-        // remove();
-        // appendChild();
-        // createElement();
-        // insertBefore();
-        // children();
-        // clone();
+        // 获取DOM对象的方法
+        //1、 getElementById('id属性的名称');
+        //2、 getElementsByTagName('标签名称');
+        //3、 getElementsByClassName('类名');
+        //4、 getElementsByName('name属性值');
+        //5、 querySelector('css选择器');
+        //6、 querySelectorAll('css选择器');
 
-        // .style.left
-        // .style.backgroundColor
-        // .offsetLeft
-        // .offsetTop
-        // .innerText (<p>p</p>)
-        // .innerHTML (<p>p</p>) 能够解析标签
-        // .parentNode
+        // 如何获取jQuery对象
+        // $('css选择器或者jQuery选择器') 
+        // $('.box')  ---> 获取的是jQuery对象呢还是jQuery对象的数组？
+        // 可能是对象也可能是数组，有多个box类的时候获取的就是数组，有单个box类的时候获取的就是对象，没必要加[0]
+
+
+
+
+        // DOM对象的方法
+        // DOM1.setAttribute('属性名','属性值'); 设置属性
+        // $(DOM1).attr('属性名','属性值')
+
+        // DOM1.getAttribute('属性名'); 获取属性值
+        // $(DOM1).attr('属性名')
+
+        // DOM1.remove(); 将DOM1对象从父节点中移除 
+        // $(DOM1).remove()
+
+        // DOM1.appendChild(DOM2); 向DOM1中添加DOM2 
+        // $(DOM1).append($(DOM2))
+
+        // document.createElement('p'); 创建一个p节点 
+        // $('<p></p>')
+
+        // DOM1.insertBefore(DOM2,DOM3);
+
+        // DOM1.children(); 获取DOM1下面的所有标签子节点
+        // $(DOM1).children()
+
+        // DOM1.clone(); 克隆一个DOM1节点
+
+        // DOM对象的属性
+        // DOM1.style.left 获取DOM1的left值
+        // $(DOM1.position().left)
+
+        // DOM1.style.backgroundColor = 'red' 获取DOM1对象的背景颜色
+        // $(DOM1).css({
+        // "background-color":"red"
+        // })
+
+        // DOM1.offsetLeft 获取DOM1的left距离有定位的父节点的left的距离
+        // $(DOM1).offset().left
+
+        // DOM1.offsetTop  获取DOM1的top距离有定位的父节点的top的距离
+        // $(DOM1).offset().top
+
+        // DOM1.innerText = '<p>p</p>'  设置DOM1里面的内容（不能够解析标签）
+        // $(DOM1).text('<p>p</p>')
+        // DOM1.innerHTML = '<p>p</p>' 设置DOM1里面的内容（能够解析标签）
+        // $(DOM1).html('<p>p</p>')
+        // DOM1.parentNode  返回DOM1的父节点
+        // $(DOM1).parent()
+
+        // DOM对象转化成jQuery象
+        // DOM1  ----> $(DOM1)
+
+        // jQuery对象转化成 DOM 对象
+        // jQuery1 --->jQuery1[0]
+        //             jQuery1.get(0)
+
+        // $('.box')  当中有5个jQuery对象，我们如何获取第三个？
+        //  $('.box').eq(2)
+
+        // $('.box')  当中有5个jQuery对象，我们如何获取第三个,并将第三个jQuery对象转化成DOM对象？
+        //  $(".box")[2]
+
+
+
 
 
 

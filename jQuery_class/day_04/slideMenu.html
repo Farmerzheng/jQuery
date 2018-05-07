@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+    
+    .side_bar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 300px;
+        background-color: #363a45;
+        color: #fff;
+    }
+    
+    .city {
+        width: 300px;
+        line-height: 50px;
+        text-align: center;
+        margin: 1px 0;
+        overflow: hidden;
+    }
+    
+    .city_item {
+        background-color: #3889D4;
+        cursor: pointer;
+    }
+    
+    .university_wrap {
+        overflow: hidden;
+    }
+    
+    .university {
+        line-height: 40px;
+        height: 40px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+    }
+    
+    .university:hover {
+        background-color: #1acbfc;
+    }
+</style>
+
+<body>
+    <ul class="side_bar">
+        <li class="city">
+            <ul class="city_item">
+                <li>北京</li>
+            </ul>
+            <ul class="university_wrap">
+                <li class="university">北京美国英语语言学院</li>
+                <li class="university">清华大学</li>
+                <li class="university">北京大学</li>
+                <li class="university">北京外国语大学</li>
+                <li class="university">中国人民大学</li>
+                <li class="university">中国农业大学</li>
+            </ul>
+        </li>
+        <li class="city">
+            <ul class="city_item">
+                <li>上海</li>
+            </ul>
+            <ul class="university_wrap">
+                <li class="university">复旦大学</li>
+                <li class="university">上海交通大学</li>
+                <li class="university">同济大学</li>
+            </ul>
+        </li>
+        <li class="city">
+            <ul class="city_item">
+                <li>康庄</li>
+            </ul>
+            <ul class="university_wrap">
+                <li class="university">北京美国英语语言学院</li>
+                <li class="university">北京印刷学院</li>
+                <li class="university">国家开放大学</li>
+            </ul>
+        </li>
+    </ul>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        $('.city_item').on('click', clickHandler);
+
+        function clickHandler() {
+            $(this).parent().find('.university_wrap').slideToggle();
+        }
+    </script>
+</body>
+
+</html>
