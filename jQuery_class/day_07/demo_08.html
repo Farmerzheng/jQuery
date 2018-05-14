@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+    <button class="btn">点击</button>
+    <script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+    <script>
+        // 如何写jQuery插件：为jQuery的原型对象(fn)添加方法
+        // 普通的js对象的原型对象是 prototype
+        // 需求：为所有的jQuery对象添加yellow方法，
+        // yellow 方法的作用：让盒子的背景颜色变成黄色
+
+        $.fn.yellow = function() {
+            // console.log(this);
+            this.css({
+                'background': 'yellow'
+            })
+        }
+
+
+        $('.box').yellow();
+    </script>
+</body>
+
+</html>

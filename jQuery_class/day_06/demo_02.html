@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        background-color: red;
+    }
+</style>
+
+<body>
+    <ul id="box">
+        <li class="box_item">快点下课吧，红烧肉是黄色的1</li>
+        <li class="box_item">快点下课吧，红烧肉是黄色的2</li>
+        <li class="box_item">快点下课吧，红烧肉是黄色的3</li>
+        <li class="box_item">快点下课吧，红烧肉是黄色的4</li>
+        <li class="box_item">快点下课吧，红烧肉是黄色的5</li>
+    </ul>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // 需求？点击li，打印出对应li内的文本
+
+        // let box_item_arr = document.querySelectorAll('.box_item');
+
+        // // 循环挂接事件
+        // for (let i = 0; i < box_item_arr.length; i++) {
+        //     box_item_arr[i].addEventListener('click', function() {
+        //         //  this ---> 点击的那个li
+
+        //         console.log(this.innerText);
+        //     })
+        // }
+
+
+
+        // 事件代理（委托）：
+        // 当我们需要对很多元素添加事件的时候，可以将事件委托给父节点来处理。这主要得益于浏览器的事件冒泡机制
+        // 原生js事件委托的方式如何实现？
+
+        // let box = document.querySelector('#box');
+        // 为父元素添加点击事件
+        // box.addEventListener('click', function(event) {
+
+        // event 在低版本ie当中是 window对象的属性
+        // event = event || window.event;
+
+        // 需求？打印出点击的li
+
+        // console.log(event.target);
+
+        // 打印出点击的内容
+        // console.log(event.target.innerText);
+
+
+        // })
+
+
+        // jQuery实现以上效果
+        // let box_item_arr = $('.box_item');
+        // for (let i = 0; i < box_item_arr.length; i++) {
+        //     box_item_arr.eq(i).on('click', function() {
+        //         console.log($(this).text());
+        //     })
+        // }
+
+        // jQuery数组可以直接挂接事件
+        // box_item_arr.on('click', function() {
+        //     console.log($(this).text());
+        // })
+
+
+        // let box = $('#box'); //父盒子
+        // 父盒子代理子盒子的事件
+        // box.on('click', '.box_item', function() {
+        //     console.log($(this).text());
+        // })
+
+        // js如何移除绑定的事件 removeEventListener
+        // jq如何移除绑定的事件 off
+        // box.off('click');
+
+    </script>
+</body>
+
+</html>

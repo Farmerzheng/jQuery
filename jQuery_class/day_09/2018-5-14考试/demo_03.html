@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: #eee;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer
+    }
+    
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+    
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .clearfix {
+        zoom: 1
+    }
+    
+    .nav {
+        width: 100%;
+        background-color: pink;
+        position: relative
+    }
+    
+    .nav .nav_wrap {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .nav .nav_item {
+        float: left;
+    }
+    
+    .nav_link {
+        line-height: 50px;
+        box-sizing: border-box;
+        padding: 0 10px;
+        display: block
+    }
+    
+    .content {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100vw;
+        transition: 1s;
+    }
+    
+    .active .content {
+        display: block;
+        background-color: #fff;
+    }
+    
+    .content p {
+        cursor: pointer
+    }
+</style>
+
+<body>
+    <div class="nav">
+        <ul class="nav_wrap clearfix">
+            <li class="nav_item">
+                <a href="" class="nav_link ">星期一犯困</a>
+                <div class="content">
+                    今天天气太热了，大家都穿的比较少
+                </div>
+            </li>
+            <li class="nav_item">
+                <a href="" class="nav_link">星期二打盹</a>
+                <div class="content">
+                    <p>我也穿的比较少</p>
+                    <p>我也穿的比较少</p>
+                    <p>我也穿的比较少</p>
+                </div>
+            </li>
+            <li class="nav_item">
+                <a href="" class="nav_link">星期三瞌睡</a>
+                <div class="content">
+                    大家都没心情学学习了
+                </div>
+            </li>
+            <li class="nav_item">
+                <a href="" class="nav_link">星期四不想起床</a>
+                <div class="content">
+                    <p>大家集体旷课</p>
+                    <p>大家集体旷课</p>
+                    <p>大家集体旷课</p>
+                </div>
+            </li>
+            <li class="nav_item">
+                <a href="" class="nav_link">不要撸了</a>
+                <div class="content">
+                    <p>小宝宝出生了</p>
+                    <p>小宝宝出生了</p>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // hover(func1,func2) <===> mouseover&mouseout
+        $('.nav_item').on('mouseenter', function() {
+            //   鼠标移入的时候触发
+            $(this).addClass('active').siblings().removeClass('active');
+
+        })
+
+        $('.content').on('mouseleave', function() {
+            $(this).parent().removeClass('active')
+        })
+    </script>
+</body>
+
+</html>

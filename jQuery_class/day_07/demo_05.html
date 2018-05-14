@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+    
+    .carousel {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+    }
+    
+    .carousel_wrap {
+        width: 2500px;
+        height: 300px;
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+    
+    .carousel_item {
+        float: left;
+        width: 500px;
+        height: 300px;
+    }
+    
+    .carousel_item img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <div class="carousel">
+        <ul class="carousel_wrap">
+            <li class="carousel_item"><img src="img/1.jpg" alt=""></li>
+            <li class="carousel_item"><img src="img/2.jpg" alt=""></li>
+            <li class="carousel_item"><img src="img/3.jpg" alt=""></li>
+            <li class="carousel_item"><img src="img/4.jpg" alt=""></li>
+            <li class="carousel_item"><img src="img/1.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+    <script>
+        // 需求？点击按钮让盒子宽高变成200px
+
+        // 当前显示的图片的索引
+        let currentIndex = 0;
+
+        // 图片的宽度
+        let imgWidth = 500;
+
+        // 运动的盒子
+        let carousel_wrap = $('.carousel_wrap');
+
+        // setInterval(function(){console.log(1)},200) 
+        // 每隔200ms在控制台打印1
+
+        setInterval(function() {
+
+            // 计算当前图片的索引
+            currentIndex++;
+            if (currentIndex == 5) {
+                // 当索引满足条件时，将carousel_wrap的 left设为0
+                carousel_wrap.css({
+                    left: 0
+                });
+                currentIndex = 1;
+            }
+            // 根据currentIndex 改变 carousel_wrap 的left 值
+            carousel_wrap.animate({
+                left: -currentIndex * imgWidth + 'px'
+            });
+
+        }, 1000)
+    </script>
+</body>
+
+</html>

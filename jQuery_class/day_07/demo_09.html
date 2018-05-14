@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .page {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+    
+    .page .page_item {
+        text-align: center;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+        padding: 5px;
+        cursor: pointer;
+        color: #428BCA
+    }
+    
+    .page .page_item:hover {
+        border: 1px solid #428BCA;
+    }
+    
+    .active {
+        background-color: #428BCA;
+        color: #fff!important;
+    }
+</style>
+<!-- 
+   用jQuery插件
+   一般需要移入特定的html、css和 js代码 
+
+ -->
+
+<body>
+    <div class="page">
+        <span class="prev page_item">上一页</span>
+        <span class="page_wrap">
+           
+        </span>
+        <span class="next page_item">下一页</span>
+    </div>
+    <script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+    <script src='pagenation.js'></script>
+    <script>
+        $(".page").createPage({
+
+            pageCount: 6, //总页数
+
+            current: 4, //当前页数
+
+            callback: function(page) {
+                console.log('您点击了第' + page + '页')
+                    //单击某一页的时候会调用此函数
+
+                // 发送网络请求
+            }
+
+        });
+    </script>
+</body>
+
+</html>

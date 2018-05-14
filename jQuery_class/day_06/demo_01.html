@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background-color: #red;
+    }
+</style>
+
+<body>
+    <div id="box" onclick="hkx()"></div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // 原生js事件挂接方式
+        // 第一种
+        let box = document.querySelector('#box');
+        box.addEventListener("click", function() {
+
+            })
+            // 第二种（事件覆盖）
+        box.onclick = function() {
+
+            }
+            // 第三种（事件覆盖）
+        function hkx() {
+
+        }
+
+        // jQuery事件挂接方式
+        $('#box').on('click', function() {
+
+        })
+        $('#box').click(function() {
+
+        })
+
+        // 事件覆盖？ 第二个事件处理函数会将第一个事件处理函数覆盖掉
+        // 哪一种会存在事件覆盖？
+    </script>
+</body>
+
+</html>

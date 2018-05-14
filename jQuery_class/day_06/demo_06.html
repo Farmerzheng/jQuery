@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="list">
+        <li class="item">慧茹最漂亮</li>
+        <li class="item">浩欣最聪明</li>
+        <li class="item">王老师最骚</li>
+        <li class="item">曹杰最爱王老师</li>
+        <li class="item">凯旋不喜欢女人</li>
+    </ul>
+    <script>
+        let itemArr = document.getElementsByClassName('item');
+
+        for (let i = 0; i < itemArr.length; i++) {
+            itemArr[i].addEventListener("click", function() {
+                console.log(i)
+            })
+        }
+        
+        // {
+        //     i = 0;
+        //     itemArr[i].addEventListener("click", function() {
+        //         console.log(i)
+        //     })
+        // }
+        // {
+        //     i = 1;
+        //     itemArr[i].addEventListener("click", function() {
+        //         console.log(i)
+        //     })
+        // }
+        // {   
+        //     i = 2;
+        //     itemArr[i].addEventListener("click", function() {
+        //         console.log(i)
+        //     })
+        // }
+    </script>
+</body>
+
+</html>

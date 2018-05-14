@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let counter = {
+            num: 0,
+            changBy: function(val) {
+                this.num += val;
+            },
+            increase: function() {
+                this.changBy(1);
+            },
+            decrease: function() {
+                this.changBy(-1);
+            }
+        }
+
+        // 改写成闭包的形式
+
+        // function counter() {
+
+        //     let num = 0;
+
+        //     function changBy(val) {
+        //         num += val
+        //     }
+
+        //     return {
+        //         increase: function() {
+        //             changBy(1);
+        //             console.log(num)
+        //         },
+        //         decrease: function() {
+        //             changBy(-1)
+        //         }
+        //     }
+
+        // }
+
+        // counter().increase();
+
+
+        // 闭包如何用
+        // 函数里面套着函数
+        // 内层函数返回出去
+        // 有了闭包我们就能保存局部变量
+        var sum = function(num) {
+            // 局部变量
+
+            // 返回一个匿名函数
+            return function() {
+
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script></script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <input type="text" id="result">
+    <ul class="calculate">
+        <li class="calculate_item toInput">0</li>
+        <li class="calculate_item toInput">1</li>
+        <li class="calculate_item toInput">2</li>
+        <li class="calculate_item toInput">3</li>
+        <li class="calculate_item toInput">4</li>
+        <li class="calculate_item toInput">5</li>
+        <li class="calculate_item toInput">6</li>
+        <li class="calculate_item toInput">7</li>
+        <li class="calculate_item toInput">8</li>
+        <li class="calculate_item toInput">9</li>
+        <li class="calculate_item toInput">+</li>
+        <li class="calculate_item" id='equal'>=</li>
+    </ul>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        let str = '';
+
+        //利用jQuery事件代理来实现计算器
+
+        $('.calculate').on('click', '.toInput', function() {
+            let text = $(this).text();
+            str += text;
+            $('#result').val(str);
+            // console.log();
+        })
+
+        $('#equal').on('click', function() {
+            let strArr = str.split('+');
+            // console.log(strArr)
+            let total = 0;
+            strArr.forEach(function(item) {
+                total += parseInt(item);
+            });
+            $('#result').val(total);
+
+        })
+    </script>
+</body>
+
+</html>

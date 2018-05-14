@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // js加载顺序
+        // load 事件在整个页面加载完成的时候会触发
+        // window.addEventListener('load', loadHandler);
+
+        // function loadHandler() {
+        //     let box = document.getElementById('box');
+        //     box.style.backgroundColor = 'yellow';
+        // }
+
+        // jQuery实现方式
+        // $(document).ready(function() {
+        //     $('#box').css({
+        //         'background-color': 'yellow'
+        //     })
+        // })
+
+        // $(document).ready() 与 window.addEventListener('load', loadHandler)区别 ？
+        // 是否等待图片加载完成
+
+        //  $(document).ready(function(){}) 简写形式？---》$(function(){})
+    </script>
+
+    <div id="box"></div>
+</body>
+
+</html>

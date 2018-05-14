@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    form {
+        width: 400px;
+        background-color: #eee;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+    
+    .userInput {
+        width: 360px;
+        height: 70px;
+        margin: 20px auto;
+        border-bottom: 1px solid #999;
+        position: relative;
+        background-color: #fff;
+    }
+    
+    .userInput input {
+        width: 360px;
+        height: 50px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        text-indent: 6px;
+        z-index: 0
+    }
+    
+    .userInput span {
+        position: absolute;
+        left: 10px;
+        bottom: 14px;
+        font-size: 20px;
+        z-index: 1;
+        color: #aaa;
+    }
+</style>
+
+<body>
+    <form action="">
+        <div class='userInput'>
+            <span>name</span>
+            <input type="text">
+        </div>
+        <div class='userInput'>
+            <span>email</span>
+            <input type="text">
+        </div>
+
+        <div class='userInput'>
+            <span>message</span>
+            <input type="text">
+        </div>
+
+        <input type="submit">
+    </form>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        let userInputArr = $('.userInput');
+        let inputArr = $('input');
+        // 点击 .userInput
+        userInputArr.on('click', function() {
+            $(this).find('input').focus();
+            $(this).find('span').animate({
+                'font-size': '16px',
+                'bottom': '42px'
+            }, 500).css({
+                'color': 'blue'
+            })
+        });
+
+        //  当输入框失去焦点
+        inputArr.on('blur', function() {
+            $(this).prev().animate({
+                'font-size': '20px',
+                'bottom': '14px'
+            }, 500).css({
+                'color': '#aaa'
+            })
+        })
+    </script>
+</body>
+
+</html>

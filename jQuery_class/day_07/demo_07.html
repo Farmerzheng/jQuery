@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+    <div id='intro'>
+        <a></a><em></em></div>
+    <script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+    <script>
+        // 需求： box 背景变黄
+        // 需求：盒子向左移动100px
+        // 需求：移动的过程中淡淡消失
+
+        // $('.box').css({
+        //     'background-color': 'yellow'
+        // })
+        // $('.box').animate({
+        //     left: 100,
+        // }, 1000)
+
+        // $('.box').fadeOut(1000)
+
+        //    jQuery的链式调用
+        // 链式调用的原理：每一个jQuery对象的方法都会返回这个jQuery对象本身
+        $('.box').css({
+            'background-color': 'yellow'
+        }).animate({
+            left: 100,
+        }, 1000).fadeOut(1000)
+
+        // 可以调用.end()方法来使得结果集后退一步,返回到先前的集合
+
+        $('#intro').css('color', '#ccc')
+            .find('a')
+            .addClass('highlighted')
+            .end()
+            .find('em')
+            .css('color', 'red').end()
+    </script>
+</body>
+
+</html>

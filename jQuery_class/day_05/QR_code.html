@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #333;
+    }
+    
+    .footer_wrap {
+        width: 100%;
+        height: 100%;
+        /* 容器采用flex布局 */
+        display: flex;
+        /* 容器属性，控制里面小盒子的水平间距 */
+        justify-content: space-around;
+        /* 容器属性，让里面的小盒子在一行显示 */
+        flex-direction: row;
+    }
+    /* 
+      容器属性和项目属性
+      容器属性：
+      flex-direction：row / column (控制着所有子项的排列方式) |
+      flex-wrap：wrap/no-wrap (控制着子项到达父元素边界是否折行)
+      flex-flow: <flex-direction> || <flex-wrap>;
+      justify-content：space-between/space-around/center (控制着所有子项的水平排列方式)
+      align-items ：flex-start | flex-end | center | baseline | stretch;(控制着所有子项的垂直排列方式)
+
+      项目属性：
+    
+        flex-grow ：单个子项的放大属性 0（不放大） 1（放大）
+        flex-shrink：单个子项的缩小属性 0（不缩小）1（缩小）
+        flex：是flex-grow和flex-shirk的简写，
+        auto (1 1 auto) 自动放大缩小 和 none (0 0 auto)。不放大也不缩小
+        align-self：单个子项的垂直排列方式（align-self: auto | flex-start | flex-end | center | baseline | stretch;）
+     */
+    
+    .footer_item {
+        width: 50px;
+        height: 50px;
+        position: relative;
+    }
+    
+    .footer_item img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .qr_code {
+        width: 100px!important;
+        height: 100px!important;
+        position: absolute;
+        left: -25px;
+        top: -100px;
+    }
+</style>
+
+<body>
+    <script src='http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js'></script>
+    <div class="footer">
+        <ul class="footer_wrap">
+            <li class="footer_item">
+                <img src="./img/side_icon02.png" alt="">
+                <img src="./img/code.png" alt="" style='display:none' class="qr_code">
+            </li>
+            <li class="footer_item">
+                <img src="./img/side_icon03.png" alt="">
+                <img src="./img/code.png" alt="" style='display:none' class="qr_code">
+            </li>
+            <li class="footer_item">
+                <img src="./img/side_icon04.png" alt="">
+                <img src="./img/code.png" alt="" style='display:none' class="qr_code">
+            </li>
+        </ul>
+    </div>
+    <script src='js/fx.js'></script>
+    <script>
+        //  电脑端的click事件可以作为移动端的触摸事件使用
+
+        // zepto 是针对移动端的js库
+        // jQuery 是针对pc端的js库
+
+        // 为什要用 zepto和jQuery？
+        // 为了更好的操作DOM对象
+
+        // 怎么用zeoto和jQuery?
+        // 1、下载库，通过script标签引入
+        // 2、通过cdn（内容分发网络 content delivery networt）的方式引入
+
+        // zepto和jQuery的区别？
+        // zepto 体积小，浏览器兼容性低
+        // jQuery 体积大，浏览器兼容性高
+
+        //  zepto和jQuery的联系？
+        //  zepto是简化版的jQuery (两者的大部分方法都一样)
+
+        // 浏览器内核（浏览器的渲染引擎、浏览器解析js的规则）
+        // 例如:挂接事件兼容性  IE ： attachEvent
+        chrome: addEventListener
+            // 可以看出 addEventListener方法不被低版本的IE识别
+
+        // 移动端浏览器内核都是 -webkit- 内核（当前最流行的浏览器内核）
+
+        // 1、IE浏览器内核：Trident内核，也是俗称的IE内核； 
+        // 2、Chrome浏览器内核：统称为Chromium内核或Chrome内核，以前是Webkit内核，现在是Blink内核； 
+        // 3、Firefox浏览器内核：Gecko内核，俗称Firefox内核； 
+        // 4、Safari浏览器内核：Webkit内核； 
+        // 5、Opera浏览器内核：最初是自己的Presto内核，后来是Webkit，现在是Blink内核； 
+        // 6、360浏览器、猎豹浏览器内核：IE+Chrome双内核； 
+        // 7、搜狗、遨游、QQ浏览器内核：IE+Chrome双内核； 
+        // 8、百度浏览器、世界之窗内核：IE内核； 
+        // 9、2345浏览器内核：以前是IE内核，现在也是IE+Chrome双内核；
+
+        // 360\QQ\遨游\2345\搜狗\猎豹…………
+        // 国内的浏览器内核都是 -webkit 内核
+        // webkit内核 内置 v8 渲染引擎（node.js就是基于v8而产生的）
+
+
+
+
+        $('.footer_item').on('click', clickHandler);
+
+        function clickHandler(event) {
+
+            // 阻止事件冒泡，防止执行挂接在docuemnt上面的方法
+            event.stopPropagation();
+
+            // console.log(event); //事件对象
+            // console.log(event.target); //点击的DOM对象
+            // console.log($(event.target).next()[0]); //点击的DOM对象
+
+            let qr_code = $(event.target).next()[0];
+
+            // qr_code.style.display 获取的是行内样式
+
+            if (qr_code.style.display == 'none') {
+                $(qr_code).fadeIn();
+            } else {
+                $(qr_code).fadeOut();
+            }
+        }
+
+
+        // 点击空白的地方让二维码图片隐藏
+
+        $(document).on('click', documentClickHandler);
+
+        function documentClickHandler() {
+            // 隐藏二维码
+
+            $('.qr_code').fadeOut();
+
+
+        }
+    </script>
+</body>
+
+</html>

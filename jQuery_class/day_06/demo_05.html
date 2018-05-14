@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="list">
+        <li class="item">慧茹最漂亮</li>
+        <li class="item">浩欣最聪明</li>
+        <li class="item">王老师最骚</li>
+        <li class="item">曹杰最爱王老师</li>
+        <li class="item">凯旋不喜欢女人</li>
+    </ul>
+    <script>
+        // 动态作用域和词法作用域
+
+        // 动态作用域？变量的作用范围在代码运行的时候确定（动态分析）
+        // 词法作用域（静态作用域）？变量的作用范围在词法分析的时候确定（静态分析）
+
+        // this ----> 动态作用域
+
+        //闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。
+        //  闭包很有用，因为他允许将函数与其所操作的某些数据（环境）关联起来
+
+        // 闭包一旦创建不会销毁
+
+        // 闭包要谨慎使用，因为会存在内存泄漏
+
+        // 内存泄漏？
+        // 程序当中没有用的变量或者函数
+
+
+
+        let itemArr = document.getElementsByClassName('item');
+
+        // for (var i = 0; i < itemArr.length; i++) {
+
+        //     itemArr[i].addEventListener("click", (function(num) {
+
+        //         return function() {
+        //             console.log(num)
+        //         }
+        //     })(i));
+        // }
+
+        (function(num) {
+            return function() {
+                console.log(num)
+            }
+        })(i)
+
+
+        for (var i = 0; i < itemArr.length; i++) {
+
+            let obj = {
+                handler: function(abc) {
+                    return function() {
+                        console.log(abc);
+                    }
+                }
+            }
+
+            itemArr[i].addEventListener("click", obj.handler(i));
+        }
+
+
+        // 匿名函数的额执行  (function(){})()
+
+        //  匿名函数的额执行返回值是什么？  function() {console.log(num)}
+
+        // 真正挂接的事件处理函数是：  function() {console.log(num)}
+
+        // i : 实参  num ：形参
+
+        // 经过循环我们创建了五个闭包（小的生态系统）
+        // 第一个闭包
+        // (function(num) {
+        // 闭包是由函数以及创建该函数的词法环境组合而成。
+        // 这个环境包含了这个闭包创建时所能访问的所有局部变量。
+        // return function() {
+        // console.log(num)
+        // }
+
+        // num 和 function() { console.log(num) }  组成了一个闭包
+        // num 和 function() { console.log(num) } 组成了一个小的生态系统
+
+        // })(0)
+
+
+
+        // 第二个闭包
+        // (function(num) {
+
+        //     return function() {
+        //         console.log(num)
+        //     }
+        // })(1)
+
+        // 第三个闭包
+        // (function(num) {
+
+        //     return function() {
+        //         console.log(num)
+        //     }
+        // })(2)
+        // ……………………………………
+    </script>
+</body>
+
+</html>

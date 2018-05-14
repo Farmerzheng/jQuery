@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css" />
+</head>
+
+<body>
+    <h3>DateTimePicker</h3>
+    <input type="text" value="" id="datetimepicker" />
+    <script src="./jquery.js"></script>
+    <script src="build/jquery.datetimepicker.full.js"></script>
+    <script>
+        // format 格式
+        // '2015/04/15 05:03' 日期格式
+        $('#datetimepicker_format').datetimepicker({
+            value: '2015/04/15 05:03',
+            format: $("#datetimepicker_format_value").val()
+        });
+
+        $('#datetimepicker').datetimepicker({
+            dayOfWeekStart: 5,
+            disabledDates: ['1986/01/08', '1986/01/09'],
+            startDate: '1996/01/05'
+        });
+    </script>
+</body>
+
+</html>

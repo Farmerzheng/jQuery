@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fullPage.js A simple Demo</title>
+    <meta name="author" content="Alvaro Trigo Lopez" />
+    <meta name="description" content="fullPage very simple demo." />
+    <meta name="keywords" content="fullpage,jquery,demo,simple" />
+    <meta name="Resource-type" content="Document" />
+
+    <!-- 引入css -->
+    <link rel="stylesheet" type="text/css" href="../jquery.fullPage.css" />
+
+    <!-- 引入jQuery -->
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <!-- 引入 jquery.fullPage.js -->
+    <script type="text/javascript" src="../jquery.fullPage.js"></script>
+
+    <script type="text/javascript">
+        //   当整个页面加载完成后会调用 $(document).ready(function(){})
+        // $(function(){})
+        $(function() {
+            $('#fullpage').fullpage({
+                // sectionColor: 
+                sectionsColor: ['red', 'blue', 'green', ' yellow'],
+                anchors: ['1Page', '2Page', '3Page', '4page'],
+                // 当section加载完成的时候会执行
+                afterLoad: function(anchorLink, index) {
+                    console.log(anchorLink, index);
+
+                    switch (index) {
+                        case 1:
+                            $('.title').eq(0).fadeIn();
+                            break;
+                        case 2:
+                            $(' .title').eq(1).fadeIn();
+                            break;
+                        case 3:
+                            $('.title').eq(2).fadeIn();
+                            break;
+                        case 4:
+                            $('.title').eq(3).fadeIn();
+                    }
+
+
+                },
+                afterSlideLoad: function(anchorLink, index) {
+
+                },
+                onLeave: function(anchorLink, index) {
+
+                },
+                onSlideLeave: function(anchorLink, index) {
+
+
+
+                }
+            });
+        })
+    </script>
+
+</head>
+<style>
+    .section {
+        position: relative;
+    }
+    
+    .section h1 {
+        position: absolute;
+        display: none;
+        text-align: center;
+        width: 100%;
+    }
+</style>
+
+<body>
+
+    <div id="fullpage">
+        <div class="section active" id="section0">
+            <h1 class="title">fullPage.js</h1>
+        </div>
+        <div class="section" id="section1">
+            <div class="title slide">
+                <h1>Simple Demo</h1>
+            </div>
+            <div class="slide active">
+                <h1>Only text</h1>
+            </div>
+            <div class="slide">
+                <h1>And text</h1>
+            </div>
+            <div class="slide">
+                <h1>And more text</h1>
+            </div>
+        </div>
+        <div class="section" id="section2">
+            <h1 class="title">No wraps, no extra markup</h1>
+        </div>
+        <div class="section" id="section3">
+            <h1 class="title">Just the simplest demo ever</h1>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div id="box"></div>
+    <script src='js/hammer.js'></script>
+    <script>
+        // 获取到要触摸的盒子
+        var box = document.getElementById("box");
+
+        /* 它会默认为这个对象添加一系列识别器，包括
+           tap<点>,
+           doubletap<双点击>,
+           press<按住>, 
+           pan<平移> 
+           swipe<快速滑动>
+           pinch<捏放>
+           rotate<旋转>
+         其中的 pinch 和 rotate 默认是不可用的，
+         加上这两句可以启用它们，：
+
+         hammertime.get('pinch').set({ enable: true });
+         hammertime.get('rotate').set({ enable: true });
+
+         若要允许识别器识别垂直方位或全部方位的 pan 和 swipe，可以这么写：
+
+ hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+另建议加上如下meta标签，防止doubletap 或 pinch 缩放了viewport：
+
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+用法：
+     
+var hammer = new Hammer(document.getElementById("container"));
+// 然后加入相应的回调函数即可
+hammer.ondragstart = function(ev) { };  // 开始拖动
+hammer.ondrag = function(ev) { }; // 拖动中
+hammer.ondragend = function(ev) { }; // 拖动结束
+hammer.onswipe = function(ev) { }; // 滑动
+ 
+hammer.ontap = function(ev) { }; // 单击
+hammer.ondoubletap = function(ev) { }; //双击
+hammer.onhold = function(ev) { }; // 长按
+ 
+hammer.ontransformstart = function(ev) { }; // 双指收张开始
+hammer.ontransform = function(ev) { }; // 双指收张中
+hammer.ontransformend = function(ev) { }; // 双指收张结束
+ 
+hammer.onrelease = function(ev) { }; // 手指离开屏幕
+
+         */
+
+        var hammertime = new Hammer(box);
+
+        // hammertime.get('swipe').set({
+        //     direction: Hammer.DIRECTION_VERTICAL
+        // });
+
+
+        hammertime.on('tap', function() {
+            console.log('tap');
+        });
+
+        hammertime.on('doubletap', function() {
+            console.log('doubletap');
+        });
+        hammertime.on('hold', function() {
+            console.log('hold');
+        });
+        hammertime.on('swipe', function() {
+            console.log('swipe');
+        });
+        hammertime.on('swipeleft', function() {
+            console.log('swipeleft');
+        });
+        hammertime.on('swiperight', function() {
+            console.log('swiperight');
+        });
+        hammertime.on('swipebottom', function() {
+            console.log('swipebottom');
+        });
+        hammertime.on('swipertop', function() {
+            console.log('swipetop');
+        });
+    </script>
+</body>
+
+</html>

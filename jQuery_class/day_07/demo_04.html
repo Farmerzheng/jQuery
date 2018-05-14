@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: chartreuse
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+    <button id='btn'>点击</button>
+    <script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+    <script>
+        // 需求？点击按钮让盒子宽高变成200px
+
+        $('#btn').on('click', btnClickHandler);
+
+        function btnClickHandler() {
+            /*
+            animate(obj,time,callback)
+            @prama
+                obj:变化的样式
+                time:动画的执行时间
+                callback:动画执行完成后的回调函数
+            */
+            $('.box').animate({
+                width: '200px',
+                height: '200px',
+                left: '200px',
+                top: '300px'
+            }, 1000, function() {
+                alert('动画执行完成');
+            })
+
+            // 函数、对象、数组 都是引用数据类型
+            // 基本数据类型？Number,String,Null,Undefind,Boolean
+
+            // 回调函数？ 
+            // func1(func2){}
+            // func2(){}
+            // func2是回调函数
+            // 当函数作为参数的时候，那么这个函数是回调函数
+            // 回调函数什么时候执行？
+            // 当满足一定条件的时候回调函数会执行
+            // 条件？
+            // 动画执行完成、当用户点击页码的时候、当数据传输到浏览器的时候
+        }
+    </script>
+</body>
+
+</html>

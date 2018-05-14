@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul,
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+    
+    .city {
+        width: 200px;
+        background-color: cadetblue;
+        text-align: center;
+    }
+    
+    .city_item {
+        background-color: aqua;
+        border-bottom: 1px solid #aaa;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+    
+    .university {
+        padding: 5px 0;
+    }
+    
+    .university_wrap {
+        display: none;
+    }
+</style>
+
+<body>
+    <ul>
+        <li class="city">
+            <ul class="city_item">
+                <li>城市1</li>
+            </ul>
+            <ul class="university_wrap">
+                <li class="university">大学1</li>
+                <li class="university">大学2</li>
+                <li class="university">大学3</li>
+                <li class="university">大学4</li>
+                <li class="university">大学5</li>
+            </ul>
+        </li>
+        <li class="city">
+            <ul class="city_item">
+                <li>城市2</li>
+            </ul>
+            <ul class="university_wrap">
+                <li class="university">大学1</li>
+                <li class="university">大学2</li>
+                <li class="university">大学3</li>
+                <li class="university">大学4</li>
+                <li class="university">大学5</li>
+            </ul>
+        </li>
+        <li class="city">
+            <ul class="city_item">
+                <li>城市3</li>
+            </ul>
+            <ul class="university_wrap">
+                <li class="university">大学1</li>
+                <li class="university">大学2</li>
+                <li class="university">大学3</li>
+                <li class="university">大学4</li>
+                <li class="university">大学5</li>
+            </ul>
+        </li>
+    </ul>
+    <script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+    <script>
+        $('.city_item').on('click', cityItemClickHandler);
+
+        function cityItemClickHandler() {
+            // slideToggle --->slideDown 和 slideUp
+            $(this).next().slideToggle();
+        }
+    </script>
+</body>
+
+</html>

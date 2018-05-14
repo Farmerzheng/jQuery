@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // JSON 是浏览器提供给我们的内置对象
+        // JSON 常用的有两个方法 stringify parse
+        let zhangsan = {
+                name: 'zhangsan',
+                age: 19
+            }
+            //需求 ： 将zhangsan转换成字符串类型
+
+
+        let str = JSON.stringify(zhangsan)
+        console.log(str);
+
+        // 需求: 将str 转换成对象
+        let obj = JSON.parse(str);
+        console.log(obj)
+
+        // 总结
+        // 对象转换成字符串 JSON.stringify() --->对象的序列化
+        // 字符串转换成对象 JSON.parse()---->对象的反序列化
+        // 有些低版本浏览器没有内置JSON对象，怎么办？
+        //引入json2.js, json2.js提供了json的序列化和反序列化方法，可以将一个json对象转换成json字符串，也可以将一个json字符串转换成一个json对象。
+
+        //  （Json   javascript Object Notation   javascript对象表示法）是一种轻量级的数据交换
+        // 格式， javaScript对象字面量语法的一种文本格式,其实就是一个js对象
+
+        //数据交换的格式？ json(现在主流格式)   xml （以前的数据格式）
+        // JSON格式的数据比同等的XML格式的数据占用空间更少，执行速度更快
+
+        // JSON对象是浏览器自带的，不过对于不同的浏览器，支持不同
+
+        // 支持浏览器：IE8+  chrome   fireFox   safari
+
+        // IE6/7可以通过引入json2.js库（下载地址：www.json.org）来支持
+    </script>
+</body>
+
+</html>

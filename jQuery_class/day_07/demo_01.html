@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cart_list">
+
+    </div>
+    <script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+    <script>
+        let data = [{
+            name: 'milk ',
+            price: 2,
+            num: 4,
+            checked: true
+        }, {
+            name: 'banana ',
+            price: 1,
+            num: 3,
+            checked: false
+        }, {
+            name: 'apple ',
+            price: 3,
+            num: 5,
+            checked: true
+        }];
+
+
+        // 单个购物车的构造函数
+        function SingleCart(singleObj) {
+            // singleObj是一个对象类型
+            // 将传入的参数作为对象的属性
+            // this 指通过构造函数new出来的对象
+            this.name = singleObj.name;
+            this.price = singleObj.price;
+            this.num = singleObj.num;
+            this.checked = singleObj.checked;
+
+        }
+        // 构造函数的原型对象
+        // 通过new方法创建的对象会继承prototype的属性和方法
+        // 构造函数的方法一般写在原型对象上面
+        SingleCart.prototype = {
+            init: function() {
+                // 返回标签和传入的数据拼接好的字符串
+                // 字符串拼接的方法 ES5 、 ES6
+                // <span></span>  let name = 'zhangsan'
+                // ES5 '<span>name<span>' 或者 "<span>name</span>"
+                // ES6 `<span>${name}</span>`
+
+                return `<p>
+                    <span class="name">${this.name}</span>
+                    <span class="price_wrap">
+                        <span>单价</span>
+                    <span class="price">${this.price}</span>
+                    </span>
+                    <span class="num_wrap">
+                        <button class="plus">-</button>
+                        <span class="num">${this.num}</span>
+                    <button class="minus">+</button>
+                    </span>
+                    <span class="total_price">${this.price*this.num}</span>
+               </p>`
+            }
+        }
+
+
+
+
+        let str = '';
+        let cart_list = $('.cart_list');
+
+        for (let i = 0; i < data.length; i++) {
+
+            //  创建单个购物车对象
+            let singleCart = new SingleCart(data[i]);
+
+            // str += 1 <===> str = str + 1
+
+            str += singleCart.init();
+
+            cart_list.html(str);
+        }
+    </script>
+</body>
+
+</html>

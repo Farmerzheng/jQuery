@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style lang="">
+    .star_container {
+        width: 250px;
+        margin: 20px auto;
+        border: 1px solid #eee;
+        font-size: 0
+    }
+    
+    .star {
+        font-size: 30px;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        background-image: url('heart_3.png');
+        background-size: 100%;
+    }
+    
+    .active {
+        background-image: url('heart_1.png')!important;
+    }
+</style>
+
+<body>
+
+    <div class='star_container'>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // 鼠标移入星星变黄色
+        // 鼠标移出星星变灰色
+        // 鼠标移出大盒子，所有星星变灰色
+        // 鼠标点击星星，星星变黄色
+
+        //鼠标再次移入星星，星星还会变色
+
+
+
+        // 鼠标移入某个星星
+        $('.star').on('mouseenter', mouseenterHandler);
+        // 鼠标移出某个星星
+        $('.star').on('mouseleave', mouseleaveHandler);
+        // 鼠标点击某个星星
+        $('.star').on('click', clickHandler);
+        // 鼠标移出整个大盒子
+        $('.star_container').on('mouseleave', containerLeaveHandler);
+        // 鼠标移入大盒子
+        $('.star_container').on('mouseenter', containerenterHandler);
+
+        // boolean 可以用作开关（可以判断状态）
+        let clickBoolean = false;
+
+        // 鼠标移入某个星星的时候就会触发
+        function mouseenterHandler() {
+            if (clickBoolean) return;
+            // 让星星本身变色
+            $(this).addClass('active');
+            // 让星星前面的所有星星变色
+            $(this).prevAll().addClass('active');
+        }
+
+        // 鼠标移出某个星星的时候   
+        function mouseleaveHandler() {
+            if (clickBoolean) return;
+            // 让移出的星星颜色还原
+            $(this).removeClass('active');
+        }
+
+        //鼠标移出大盒子    
+        function containerLeaveHandler() {
+            if (clickBoolean) return;
+            // 让所有星星颜色还原
+            $('.star').removeClass('active');
+        }
+
+        // 点击星星的时候触发
+        function clickHandler() {
+            clickBoolean = true;
+            $(this).addClass('active');
+            $(this).prevAll().addClass('active');
+        }
+
+        // 鼠标移入大盒子
+        function containerenterHandler() {
+            clickBoolean = false;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+</style>
+<script src=' http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js '></script>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // 要拖拽的盒子
+        // let box = $('.box');
+
+        // dixX和divY为什么要设为全局变量
+        // let divX = 0;
+        // let divY = 0;
+
+        // // 布尔值作用？
+        // // 控制着盒子是否可以运动
+        // let moveBoolean = false;
+
+        // $(document).on('mousemove', mouseMoveHandler);
+        // $(document).on('mouseup', mouseUpHandler);
+
+        // box.on('mousedown', mouseDownHandler);
+
+        // function mouseDownHandler(event) {
+        //     moveBoolean = true;
+        //     divX = event.pageX - box.position().left;
+        //     divY = event.pageY - box.position().top;
+        // }
+
+        // function mouseMoveHandler(event) {
+        //     // 判断鼠标是按下还是抬起
+        //     // 如果要是抬起状态不移动盒子
+
+        //     if (!moveBoolean) return;
+        //     box.css({
+        //         left: event.pageX - divX,
+        //         top: event.pageY - divY
+        //     })
+        // }
+
+        // function mouseUpHandler() {
+        //     moveBoolean = false;
+        // }
+
+        // 面向对象实现拖拽
+        let box = $('.box');
+
+        function Drag(dragBox) {
+            this.box = dragBox;
+            this.divX = 0;
+            this.divY = 0;
+            this.moveBoolean = false;
+        }
+        Drag.prototype = {
+            init: function() {
+                this.bindEvent();
+            },
+            bindEvent: function() {
+                $(document).on('mousemove', this.mouseMoveHandler.bind(this));
+                $(document).on('mouseup', this.mouseUpHandler.bind(this));
+                this.box.on('mousedown', this.mouseDownHandler.bind(this));
+            },
+            mouseDownHandler: function(event) {
+                this.moveBoolean = true;
+                this.divX = event.pageX - this.box.position().left;
+                this.divY = event.pageY - this.box.position().top;
+            },
+            mouseMoveHandler: function(event) {
+                if (!this.moveBoolean) return;
+                this.box.css({
+                    left: event.pageX - this.divX,
+                    top: event.pageY - this.divY
+                })
+            },
+            mouseUpHandler: function() {
+                this.moveBoolean = false;
+            }
+
+        }
+
+        let drag1 = new Drag(box);
+
+        drag1.init();
+    </script>
+</body>
+
+</html>
