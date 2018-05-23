@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+
+</head>
+<style>
+    body,
+    div,
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+    }
+    
+    li {
+        display: inline-block;
+        list-style: none;
+    }
+    
+    .nav_wrap {
+        width: 455px;
+        height: 550px;
+        position: relative;
+        background: pink;
+    }
+    
+    .nav_item {
+        height: 100px;
+        width: 100px;
+        color: black;
+        background: blue;
+        display: inline-block;
+        margin: 5px;
+    }
+    
+    .move {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        display: inline-block;
+        background: yellow;
+        bottom: 0;
+        left: 20px;
+        opacity: 0.5;
+    }
+</style>
+
+<body>
+    <div class="nav">
+        <div class="nav_wrap">
+            <div class="nav_item">青春</div>
+            <div class="nav_item">事业</div>
+            <div class="nav_item">激情四射</div>
+            <div class="nav_item">爱情</div>
+            <div class="nav_item">成功</div>
+            <div class="nav_item">青春</div>
+            <div class="nav_item">事业</div>
+            <div class="nav_item">激情四射</div>
+            <div class="nav_item">爱情</div>
+            <div class="nav_item">成功</div>
+            <div class="nav_item">青春</div>
+            <div class="nav_item">事业</div>
+            <div class="nav_item">激情四射</div>
+            <div class="nav_item">爱情</div>
+            <div class="nav_item">成功</div>
+            <div class="nav_item">青春</div>
+            <div class="nav_item">事业</div>
+            <div class="nav_item">激情四射</div>
+            <div class="nav_item">爱情</div>
+            <div class="nav_item">成功</div>
+            <div class="move"></div>
+        </div>
+    </div>
+
+
+    <script>
+        // 鼠标移入小方块时让滑块移入对应的小方块
+        //  $('.nav_item')  jQuery对象的数组
+        // 可以直接为jQuery对象的数组挂接事件
+
+        $('.nav_item').on('mouseover', mouseoverHandler);
+        // 鼠标移入小方块的时候会触发此函数
+        function mouseoverHandler() {
+            // console.log(this)
+            // this ---> DOM对象
+            // $(this) ---> jQuery对象
+
+            let left = $(this).position().left;
+            let top = $(this).position().top;
+
+            $('.move').stop().animate({
+                left: left + 5,
+                top: top + 5
+            })
+
+        }
+    </script>
+</body>
+
+</html>

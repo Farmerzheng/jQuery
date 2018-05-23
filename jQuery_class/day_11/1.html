@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+<style>
+    .bar_des {
+        display: inline-block;
+        height: 30px;
+        width: 120px;
+        line-height: 30px;
+        margin: 30px 0
+    }
+    
+    .bar {
+        background: red;
+        height: 50px;
+        width: 0px;
+        display: inline-block;
+    }
+</style>
+
+<body>
+
+    <div>
+        <span class="bar_des">王老师骚值</span>
+        <div class="bar"></div>
+        <span class="bar_num"></span>
+    </div>
+    <div>
+        <span class="bar_des">桀骜的骄傲</span>
+        <div class="bar"></div>
+        <span class="bar_num"></span>
+    </div>
+    <div>
+        <span class="bar_des">奥迪骄傲案例</span>
+        <div class="bar"></div>
+        <span class="bar_num"></span>
+    </div>
+    <div>
+        <span class="bar_des">收费模式福克斯</span>
+        <div class="bar"></div>
+        <span class="bar_num"></span>
+    </div>
+    <div>
+        <span class="bar_des">是、联发科</span>
+        <div class="bar"></div>
+        <span class="bar_num"></span>
+    </div>
+    <div>
+        <span class="bar_des">索科洛夫拍摄</span>
+        <div class="bar"></div>
+        <span class="bar_num"></span>
+    </div>
+
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        let data = [{
+            backgroundColor: 'red',
+            num: 90
+        }, {
+            backgroundColor: 'yellow',
+            num: 59
+        }, {
+            backgroundColor: 'green',
+            num: 9
+        }, {
+            backgroundColor: 'pink',
+            num: 100
+        }, {
+            backgroundColor: 'blue',
+            num: 18
+        }, {
+            backgroundColor: 'purple',
+            num: 52
+        }]
+
+        let animateTime = 2000;
+        let time = 0;
+
+
+        // 让柱状动画开始
+        function animate() {
+
+            // 柱状图增长
+            for (let i = 0; i < data.length; i++) {
+
+                $('.bar').eq(i).animate({
+                    width: data[i].num * 2
+                }, 2000).css({
+                    'background-color': data[i].backgroundColor
+                })
+            }
+
+            //  每隔100ms改变所有bar的num 值
+            let timer = setInterval(function() {
+                // 改变所有的bar
+                for (let i = 0; i < data.length; i++) {
+                    $('.bar_num').eq(i).text(parseInt($('.bar').eq(i).width() / 2));
+                }
+
+                time += 20;
+                if (time > 2000) {
+                    clearInterval(timer);
+                }
+            }, 20);
+
+
+
+        }
+    </script>
+</body>
+
+</html>

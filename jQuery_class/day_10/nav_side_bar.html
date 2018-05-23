@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .side_bar_wrap {
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 0;
+    }
+    
+    .search {
+        width: 210px;
+        margin: 0 auto;
+        display: block;
+        height: 60px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        border-bottom: 1px solid #999;
+    }
+    
+    .side_bar_btn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        left: 250px;
+        top: 0;
+        font-size: 0;
+        text-align: center;
+    }
+    
+    .btn_item {
+        display: inline-block;
+        width: 30px;
+        height: 4px;
+        background-color: cyan;
+    }
+    
+    .btn_item1 {
+        margin-top: 12px;
+    }
+    
+    .btn_item2 {
+        margin-top: 7px;
+    }
+    
+    .btn_item3 {
+        margin-top: 7px;
+    }
+    
+    .side_bar {}
+    
+    .side_bar {
+        width: 250px;
+        position: absolute;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        background: #eee;
+        z-index: 1;
+        transition: 1s;
+    }
+    
+    .active .side_bar {
+        left: 0
+    }
+    
+    .btn_item {
+        opacity: 1;
+        transition: 1s;
+    }
+    
+    .active .btn_item1 {
+        /*transform: translate()/rotate()/scale()*/
+        transform: rotate(44deg) translate(7px, 8px);
+    }
+    
+    .active .btn_item2 {
+        opacity: 0;
+    }
+    
+    .active .btn_item3 {
+        /*transform: translate()/rotate()/scale()*/
+        transform: rotate(-45deg) translate(8px, -8px);
+        ;
+    }
+    
+    .cover {
+        width: 100vw;
+        height: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        background-color: #999;
+        opacity: 0.5;
+        z-index: 0;
+        transition: 1s;
+    }
+    
+    .active .cover {
+        height: 100%;
+    }
+    
+    .side_bar_item {
+        width: 250px;
+        height: 60px;
+        line-height: 60px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        font-size: 16px;
+        position: relative
+    }
+    
+    .item_title {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 60px;
+        z-index: 1000;
+    }
+    
+    .bar_item_bg {
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        left: -250px;
+        height: 0;
+        top: 0;
+        z-index: 1;
+        background: deeppink;
+        transition: 1s;
+        display: none;
+    }
+    
+    .item_active .bar_item_bg {
+        left: 0;
+        height: 60px;
+        display: block;
+    }
+    
+    @font-face {
+        font-family: "iconfont";
+        src: url('iconfont.eot');
+        /* IE9*/
+        src: url('iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('iconfont.woff') format('woff'), /* chrome, firefox */
+        url('iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('iconfont.svg#iconfont') format('svg');
+        /* iOS 4.1- */
+    }
+    
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>
+
+<body>
+    <div class="side_bar_wrap">
+        <div class="side_bar">
+            <div class="side_bar_btn">
+                <span class="btn_item btn_item1"></span>
+                <span class="btn_item btn_item2"></span>
+                <span class="btn_item btn_item3"></span>
+            </div>
+            <div>
+                <input type="text" class="search">
+                <i class="icon iconfont">&#xe648;</i>
+            </div>
+
+            <ul class="side_bar_list">
+                <li class="side_bar_item item_active">
+                    <div class="item_title">我老是最帅</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+                <li class="side_bar_item">
+                    <div class="item_title">王老师最好</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+                <li class="side_bar_item">
+                    <div class="item_title">王老师最短</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+                <li class="side_bar_item">
+                    <div class="item_title">凯旋爱吃花椒</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+                <li class="side_bar_item">
+                    <div class="item_title">陈赓喜欢凯旋</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+                <li class="side_bar_item">
+                    <div class="item_title">凯旋喜欢克飞</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+                <li class="side_bar_item">
+                    <div class="item_title">克飞喜欢陈赓</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+                <li class="side_bar_item">
+                    <div class="item_title">他们都喜欢王老师</div>
+                    <div class="bar_item_bg"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="cover"></div>
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        $('.side_bar_btn').on('click', btnClickHandler);
+
+        function btnClickHandler() {
+            // console.log($('.side_bar_wrap').hasClass('active'))
+            if ($('.side_bar_wrap').hasClass('active')) {
+                $('.side_bar_wrap').removeClass('active')
+            } else {
+                $('.side_bar_wrap').addClass('active')
+            }
+
+        }
+        //    hover() ---> 
+        //  jQuery对象的方法
+        // hover(function(){'鼠标移入的时候会被触发'},function(){'鼠标移出的时候会被触发'})
+        //  hover <----> mouseenter&&mouseleave
+        // mouseenter与mouseover区别？
+        // mouseenter不会触发子元素
+        // mouseover与mouseleave区别？
+        // mouseleave也不会触发子元素
+
+        $('.side_bar_item ').hover(function() {
+
+            $(this).addClass('item_active');
+
+        }, function() {
+
+            $(this).removeClass('item_active');
+
+        })
+    </script>
+</body>
+
+</html>

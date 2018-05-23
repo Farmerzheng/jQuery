@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    nav {
+        width: 100%;
+        height: 50px;
+        background: pink
+    }
+    
+    .nav_list {
+        position: relative;
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        line-height: 50px;
+    }
+    
+    .nav_item {
+        float: left;
+        margin: 0 10px;
+    }
+    
+    .nav_item a {
+        float: left;
+    }
+    
+    .scroll_bar {
+        width: 100px;
+        height: 2px;
+        background: yellow;
+        position: absolute;
+        left: 10px;
+        top: 42px;
+    }
+</style>
+
+<body>
+    <nav>
+        <ul class="nav_list">
+            <li class="nav_item"><a href="">昨天有没有想王老师</a></li>
+            <li class="nav_item"><a href="">快放暑假了</a></li>
+            <li class="nav_item"><a href="">解放</a></li>
+            <li class="nav_item"><a href="">我老师想多了</a></li>
+            <li class="nav_item"><a href="">都想</a></li>
+            <div class="scroll_bar"></div>
+        </ul>
+
+    </nav>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        // 计算出第一个导航项的宽度？
+        // 直接写死好么？---->写死了导航项的宽度，扩展性就降低了
+        // 动态计算出的导航项宽度扩展性好，因为我可以修改导航项的顺序
+        let firstWidth = $('.nav_item').eq(0).width();
+
+        // 将scroll_bar的宽度设置为第一个导航项的宽度
+        // jQuery --> $('.scroll_bar').css({width:100}) 方法
+        // DOM ---> document.getElementByClassName('scroll_bar')[0].style.width = 100
+
+        $('.scroll_bar').css({
+            'width': firstWidth
+        })
+
+        // 以上代码还有其他方式的写法么？
+        // $('.scroll_bar').css('width',firstWidth)
+
+        //css() 可以传入不同的参数
+        // 第一种  css({width:100,height:100,color:'red'})
+        // 第二种  css('width':100)
+
+        // 区别？
+        // 当你要设置多个样式的时候采用第一种写法
+
+
+
+
+        // 原生js挂接事件  addEventListener \ attachEvent（低版本IE）
+        // 原生js移除事件  removeEventListener \ detachEvent(低版本IE)
+
+        // 为所有的导航项添加鼠标移入事件
+        $('.nav_item').on('mouseover', mouseoverHandler);
+
+        // 事件代理（事件委托）？
+        // 利用事件冒泡的原理，让父元素去处理子元素的事件
+        // jQuery事件代理如何实现？
+
+        // $('父元素选择器').on('事件名称','子元素选择器',事件处理函数)
+
+
+        function mouseoverHandler() {
+            //1、移动scroll_bar  2、改变scroll_bar的宽度
+
+            // 计算出要移动的位置
+            let scroll_bar_left = $(this).position().left;
+
+            // 计算出要变化的宽度
+            //  $(this).width()           
+
+
+            // position() 方法返回匹配元素相对于父元素的位置（偏移）。
+            // offset() 方法返回或设置匹配元素相对于文档的偏移（位置）。
+
+            // 移动scroll_bar
+            // 跳舞的问题通过什么方法解决？ stop()--->终止上一次动画
+            $('.scroll_bar').stop().animate({
+                left: scroll_bar_left + 10,
+                width: $(this).width()
+            });
+
+        }
+    </script>
+</body>
+
+</html>

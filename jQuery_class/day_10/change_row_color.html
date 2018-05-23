@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px solid #ccc;
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #09c;
+            color: #fff;
+        }
+        
+        th,
+        td {
+            height: 40px;
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        .current {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+    <script>
+        let data = [{
+                bookname: "盗墓笔记",
+                author: "南派三叔",
+                publish: "中国邮电出版社",
+                sales: 88939999
+            }, {
+                bookname: "鬼吹灯",
+                author: "天下霸唱",
+                publish: "中信出版社",
+                sales: 8899999
+            }, {
+                bookname: "红楼梦",
+                author: "曹雪芹",
+                publish: "中国教育出版社",
+                sales: 88669999
+            }, {
+                bookname: "水浒传",
+                author: "施耐庵",
+                publish: "机械工业出版社",
+                sales: 88939999
+            }, {
+                bookname: "三国演义",
+                author: "罗贯中",
+                publish: "机械工业出版社",
+                sales: 88009999
+            }
+
+        ]
+
+        //展示数据
+        for (let i = 0; i < data.length; i++) {
+            //  data[i]  对应着一行的数据
+
+            // data[i] <----> data.eq(i)
+            //什么时候用arr.[i]? 什么时候用arr.eq(i)?
+            // arr 是一个jQuery对象的数组的时候用eq(i)
+            // arr 是一个普通数组的时候用[i]
+
+            //  创建一个tr(jQuery对象) 
+            let tr = $('<tr></tr>');
+
+            // html('<p>段落<p>') 与 text ('<p>段落<p>') 区别？
+            // html() 可以解析标签
+            // text() 不可以解析标签（将里面的参数全部作为文本）
+
+            // 将下面的字符串链接换成模板字符串链接的方式？
+
+            tr.html(`<td>${data[i].bookname }</td> <td> ${data[i].author} </td> <td> ${data[i].publish} </td> <td> ${data[i].sales }</td>`);
+
+            // tr.html('<td>'+ data[i].bookname + '</td>' + '<td>' + data[i].author + '</td>' + '<td>' + data[i].publish + '</td>' + '<td>' + data[i].sales + '</td>');
+
+
+            // 事件挂接
+            tr.on('mouseover', trMouseoverHandler);
+
+            // jQuery append()<---->DOM appendChild
+            $('tbody').append(tr);
+
+        }
+
+        function trMouseoverHandler() {
+            // 重置所有行的颜色
+            // find() ---> 找到某个jquery对象下面的子对象
+            $('tbody').find('tr').css({
+                'background-color': 'white'
+            });
+            //  改变指定行的颜色
+            $(this).css({
+                'background-color': 'red'
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+</html>

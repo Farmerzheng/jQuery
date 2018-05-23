@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'></script>
+</head>
+<style>
+
+</style>
+
+<body>
+    <button class="start">开始</button>
+    <script src='messageBox.js'></script>
+    <script>
+        // 等到文档加载完成后再执行
+        $(function() {
+
+            // 创建一个messageBox对象
+            let messageBox = new MessageBox(
+                    '提示',
+                    '确定加入购物车么?',
+                    function() {
+                        console.log('确定')
+                    },
+                    function() {
+                        console.log('取消')
+                    })
+                // 初始化messageBox
+            messageBox.init();
+
+
+            $('.start').on('click', function() {
+
+                messageBox.show();
+            })
+
+        })
+    </script>
+</body>
+
+</html>
