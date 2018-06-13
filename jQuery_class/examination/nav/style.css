@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.pull-left {
+    float: left;
+}
+
+.nav-wrap {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+}
+
+.nav {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-item {
+    line-height: 60px;
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box
+}
+
+.nav-item:hover {
+    background-color: #eee;
+}
+
+.nav-item .bar {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    display: inline-block;
+    width: 0px;
+    height: 4px;
+    background-color: aqua
+}

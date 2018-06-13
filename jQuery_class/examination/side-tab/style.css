@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.side-tab {
+    width: 200px;
+    text-align: center;
+    box-shadow: 5px 5px 5px #999;
+    position: relative;
+}
+
+.side-tab .side-tab-item {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.side-content {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    width: 600px;
+    height: 360px;
+    background-color: pink;
+    display: none;
+}
