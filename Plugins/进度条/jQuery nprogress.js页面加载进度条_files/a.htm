@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class=" " lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>NProgress: slim progress bars in JavaScript</title>
+  <link href="a_data/style.css" rel="stylesheet">
+  <link href="a_data/nprogress.css" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width">
+  <link href="a_data/css.css" rel="stylesheet" type="text/css">
+  
+  <script src="a_data/hn-button.js" id="hn-button.js"></script><script src="a_data/jquery-1.js"></script>
+  <script src="a_data/nprogress.js"></script>
+
+  <script>if(location.hostname.match(/ricostacruz\.com$/)){var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-20473929-1"]),_gaq.push(["_trackPageview"]),function(){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}()}</script>
+</head>
+
+<body style="">
+  <header class="page-header">
+    <span class="nprogress-logo fade"></span>
+    <h1>NProgress<i>.js</i></h1>
+    <p class="fade brief big">A nanoscopic progress bar. Featuring realistic
+    trickle animations to convince your users that something is happening!</p>
+  </header>
+
+  <div class="contents fade">
+    <div class="controls">
+      <p>
+        <button class="button play" id="b-0"></button>
+        <i>NProgress</i><b>.start()</b>
+        —
+        shows the progress bar
+      </p>
+      <p>
+        <button class="button play" id="b-40"></button>
+        <i>NProgress</i><b>.set(0.4)</b>
+        —
+        sets a percentage
+      </p>
+      <p>
+        <button class="button play" id="b-inc"></button>
+        <i>NProgress</i><b>.inc()</b>
+        —
+        increments by a little
+      </p>
+      <p>
+        <button class="button play" id="b-100"></button>
+        <i>NProgress</i><b>.done()</b>
+        —
+        completes the progress
+      </p>
+    </div>
+    
+    
+  </div>
+
+  <script>
+    $('body').show();
+    $('.version').text(NProgress.version);
+    NProgress.start();
+    setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+
+    $("#b-0").click(function() { NProgress.start(); });
+    $("#b-40").click(function() { NProgress.set(0.4); });
+    $("#b-inc").click(function() { NProgress.inc(); });
+    $("#b-100").click(function() { NProgress.done(); });
+  </script>
+
+  <script>var HN=[];HN.factory=function(e){return function(){HN.push([e].concat(Array.prototype.slice.call(arguments,0)))};},HN.on=HN.factory("on"),HN.once=HN.factory("once"),HN.off=HN.factory("off"),HN.emit=HN.factory("emit"),HN.load=function(){var e="hn-button.js";if(document.getElementById(e))return;var t=document.createElement("script");t.id=e,t.src="//hn-button.herokuapp.com/hn-button.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},HN.load();</script>
+
+
+</body></html>

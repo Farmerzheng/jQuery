@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://code.ciaoca.com/jquery/lazyload/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>jQuery Lazy Load 图片延迟加载 - 前端开发仓库</title>
+<meta name="keywords" content="jquery图片延迟加载,Lazy Load中文文档,Lazy Load设置,Lazy Load参数,lazyload设置,lazyload参数">
+<link rel="stylesheet" href="./jQuery Lazy Load 图片延迟加载_files/base.css">
+<link rel="stylesheet" href="./jQuery Lazy Load 图片延迟加载_files/code.css">
+<script src="./jQuery Lazy Load 图片延迟加载_files/jquery-1.9.1.min.js"></script>
+<script src="./jQuery Lazy Load 图片延迟加载_files/plugins.js"></script><style id="code_ciaoca_donate_tyle">#code_ciaoca_donate{overflow:hidden;position:fixed;bottom:30px;right:0;zoom:1;width:190px;height:290px;border:1px solid #444;border-right:none;border-radius:5px 0 0 5px;color:#ddd;-webkit-transition:right 0.3s,height 0.5s 0.3s;-moz-transition:right 0.3s,height 0.5s 0.3s;transition:right 0.3s,height 0.5s 0.3s;filter:progid:DXImageTransform.Microsoft.gradient(enabled="true",startColorstr="#CC000000",endColorstr="#CC000000");background-color:rgba(0,0,0,0.8);}#code_ciaoca_donate .full{float:left;width:160px;margin:0;padding:10px 15px;font:12px/20px Arial;}#code_ciaoca_donate .full h5{margin:0;padding:0;font:bold 14px/20px Arial;}#code_ciaoca_donate .full .close{position:absolute;top:12px;right:5px;width:16px;height:16px;color:#e33;font:bold 14px/16px Tahoma;cursor:pointer;}#code_ciaoca_donate .full .qr{height:160px;margin-top:5px;border-radius:5px 5px 0 0;background-color:#f1f1f1;background-repeat:no-repeat;background-position:center;}#code_ciaoca_donate .full .pays{overflow:hidden;border-radius:0 0 5px 5px;background:#111;line-height:24px;text-align:center;}#code_ciaoca_donate .full .pays a{float:left;width:50%;color:#888;text-decoration:none;}#code_ciaoca_donate .full .pays a:hover{color:#eee;}#code_ciaoca_donate .full .note{margin-top:5px;color:#aaa;}#code_ciaoca_donate .alipay .qr{background-image:url(http://code.ciaoca.com/static/img/donate_qrcode_alipay.png);}#code_ciaoca_donate .alipay .pays a[rev="alipay"],#code_ciaoca_donate .wechat .pays a[rev="wechat"]{background:#f1f1f1;color:#555;}#code_ciaoca_donate .alipay .name:before{content:"支付宝钱包";}#code_ciaoca_donate .wechat .qr{background-image:url(http://code.ciaoca.com/static/img/donate_qrcode_wechat.png);}#code_ciaoca_donate .wechat .name:before{content:"微信";}#code_ciaoca_donate .mini{display:none;float:left;width:20px;height:80px;padding:10px 5px;font:12px/18px Tahoma;text-align:center;cursor:pointer;}#code_ciaoca_donate.minimize{width:220px;right:-190px;height:110px;background-color:rgba(0,0,0,0.6);}#code_ciaoca_donate.minimize:hover{background-color:rgba(0,0,0,0.8);}#code_ciaoca_donate.minimize .mini{display:block;}@media screen and (max-width:640px){#code_ciaoca_donate,#code_ciaoca_donate.minimize{position:relative;bottom:auto;right:auto;width:auto;height:auto;margin:20px;border-radius:5px;background-color:rgba(0,0,0,0.8);}#code_ciaoca_donate .mini,#code_ciaoca_donate.minimize .mini,#code_ciaoca_donate .full .close{display:none;}#code_ciaoca_donate .full{float:none;width:auto;}}</style></head>
+<body>
+<div id="header" class="header">
+  <p class="breadcrumb"><a class="blacklink" href="http://code.ciaoca.com/">前端开发仓库</a> » <span>jQuery</span> » <strong>jQuery Lazy Load 图片延迟加载</strong></p>
+</div><div class="wrap">
+    <h1>jQuery Lazy Load 图片延迟加载<a class="source" target="_blank" href="http://www.appelsiini.net/projects/lazyload">来源</a></h1>  <div class="intro">
+    <p>基于 jQuery 的图片延迟加载插件，在用户滚动页面到图片之后才进行加载。</p>
+    <p>对于有较多的图片的网页，使用图片延迟加载，能有效的提高页面加载速度。</p>
+    <dl>
+      <dt>注意事项：</dt>
+      <dd>需要真正实现图片延迟加载，必须将真实图片地址写在 data-original 属性中。若 src 与 data-original 相同，则只是一个特效而已，并不达到延迟加载的功能。</dd>
+    </dl>
+  </div>
+
+  <div class="intro">
+    <dt>版本：</dt><dd>jQuery v1.4.4+</dd><dd>jQuery Lazy Load v1.7.2</dd><ul class="release"><li><a class="demo" target="_blank" href="http://code.ciaoca.com/jquery/lazyload/demo/">查看 Demo</a></li><li><a class="download" href="http://code.ciaoca.com/jquery/lazyload/version/jQuery.lazyload-1.7.2.zip">下载 jQuery Lazy Load v1.7.2</a></li><li><a class="download" target="_blank" href="http://www.appelsiini.net/projects/lazyload">官网下载</a></li><li><a class="issues" target="_blank" href="https://github.com/tuupola/jquery_lazyload/issues">提交问题 / Bug / 建议</a></li></ul><div id="github_star" data-user="tuupola" data-repo="jquery_lazyload"><iframe src="./jQuery Lazy Load 图片延迟加载_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" height="30px"></iframe></div>  </div>
+
+  <div id="doc_menu" class="doc_menu" style="height: 122px;"><div class="title">文档目录</div><ol class="list"><li class="n">使用方法</li><li>参数说明</li><li>相关信息</li></ol></div>
+
+  <h2>使用方法</h2>
+  <div class="example">
+<h3>载入 JavaScript 文件</h3>
+<pre><code class="html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery.lazyload.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+
+<h3>修改 HTML 代码中需要延迟加载的 IMG 标签</h3>
+<pre><code class="html hljs xml"><span class="hljs-comment">&lt;!--
+将真实图片地址写在 data-original 属性中，而 src 属性中的图片换成占位符的图片（例如 1x1 像素的灰色图片或者 loading 的 gif 图片）
+添加 class="lazy" 用于区别哪些图片需要延时加载，当然你也可以换成别的关键词，修改的同时记得修改调用时的 jQuery 选择器
+添加 width 和 height 属性有助于在图片未加载时占满所需要的空间
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lazy"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"grey.gif"</span> <span class="hljs-attr">data-original</span>=<span class="hljs-string">"example.jpg"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"640"</span> <span class="hljs-attr">heigh</span>=<span class="hljs-string">"480"</span>&gt;</span>
+</code></pre>
+
+<h3>调用 Lazy Load</h3>
+<pre><code class="js hljs javascript">$(<span class="hljs-string">'img.lazy'</span>).lazyload();</code></pre>
+  </div>
+
+  <h2>参数说明</h2>
+  <div class="example">
+    <table class="manual_table">
+      <thead>
+        <tr>
+          <th width="120">名称</th>
+          <th width="120">默认值</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody><tr>
+        <td>container</td>
+        <td>window</td>
+        <td>父容器。延迟加载父容器中的图片。 <a target="_blank" href="http://code.ciaoca.com/jquery/lazyload/demo/enabled_container.html">[Demo1]</a> <a target="_blank" href="http://code.ciaoca.com/jquery/lazyload/demo/wide_container.html">[Demo2]</a></td>
+      </tr>
+      <tr>
+        <td>event</td>
+        <td>'scroll'</td>
+        <td>触发加载的事件 <a target="_blank" href="http://code.ciaoca.com/jquery/lazyload/demo/gazillion.html">[Demo]</a></td>
+      </tr>
+      <tr>
+        <td>effect</td>
+        <td>'show'</td>
+        <td>加载使用的动画效果，如 show, fadeIn, slideDown 等 jQuery 自带的效果，或者自定义动画。 <a target="_blank" href="http://code.ciaoca.com/jquery/lazyload/demo/fadein.html">[Demo]</a></td>
+      </tr>
+      <tr>
+        <td>effectspeed</td>
+        <td>undefined</td>
+        <td>动画时间。作为 effect 的参数使用：effect(effectspeed)</td>
+      </tr>
+      <tr>
+        <td>data_attribute</td>
+        <td>'original'</td>
+        <td>真实图片地址的 data 属性后缀</td>
+      </tr>
+      <tr>
+        <td>threshold</td>
+        <td>0</td>
+        <td>灵敏度。默认为 0 表示当图片出现在显示区域中的立即加载显示；设为整数表示图片距离 x 像素进入显示区域时进行加载；设为负数表示图片进入显示区域 x 像素时进行加载。</td>
+      </tr>
+      <tr>
+        <td>failure_limit</td>
+        <td>0</td>
+        <td>容差范围。页面滚动时，Lazy Load 会遍历延迟加载的图片，检查是否在显示区域内，默认找到第 1 张不可见的图片时，就终止遍历。因为 Lazy Load 认为图片的排序是与 HTML 中的代码中的排序相同，但是也可能会出现例外，通过该值来扩大容差范围。</td>
+      </tr>
+      <tr>
+        <td>skip_invisible</td>
+        <td>true</td>
+        <td>跳过隐藏的图片。图片不可见时（如 display:none），不强制加载。</td>
+      </tr>
+      <tr>
+        <td>appear</td>
+        <td>null</td>
+        <td>图片加载时的事件 (Function)，有 2 个参数：elements_left（未加载的图片数量）、settings（lazyload 的参数）。<a target="_blank" href="http://code.ciaoca.com/jquery/lazyload/demo/fadein.html">[Demo]</a>（参考 DEMO 的源代码）</td>
+      </tr>
+      <tr>
+        <td>load</td>
+        <td>null</td>
+        <td>图片加载后的事件 (Function)，有 2 个参数，同 appear 。<a target="_blank" href="http://code.ciaoca.com/jquery/lazyload/demo/fadein.html">[Demo]</a>（参考 DEMO 的源代码）</td>
+      </tr>
+    </tbody></table>
+  </div>
+
+
+
+  <h2>相关信息</h2>
+<div class="about">
+  <dl><dt>作者网站：</dt><dd><a target="_blank" href="http://www.appelsiini.net/projects/lazyload">http://www.appelsiini.net/projects/lazyload</a></dd></dl><dl><dt>相关文档：</dt><dd><a target="_blank" href="https://github.com/tuupola/jquery_lazyload">Github</a></dd><dd><a target="_blank" href="http://code.ciaoca.com/jquery/lazyload/">中文文档</a></dd></dl><dl><dt>授权协议：</dt><dd><a target="_blank" href="http://zh.wikipedia.org/zh-cn/MIT%E8%AE%B8%E5%8F%AF%E8%AF%81">MIT</a></dd></dl></div></div>
+
+<div class="ft_copyright">© 2009 - 2016 Ciaoca</div>
+
+<script src="./jQuery Lazy Load 图片延迟加载_files/highlight.pack.js"></script>
+<script src="./jQuery Lazy Load 图片延迟加载_files/code.js"></script>
+<script src="./jQuery Lazy Load 图片延迟加载_files/donate.js"></script><div id="code_ciaoca_donate" class="minimize"><div class="mini">«<br>捐助共勉</div><div class="full alipay"><h5>捐助共勉</h5><p>阳光从窗户透了进来</p><div class="qr"></div><div class="pays"><a id="code_ciaoca_donate_alipay" href="javascript://" rev="alipay">支付宝</a><a id="code_ciaoca_donate_wechat" href="javascript://" rev="wechat">微信</a></div><p class="note">打开<span class="name"></span>，使用扫一扫<br>扫描上面的二维码进行捐助</p><i class="close">x</i></div></div>
+<div style="display:none;">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cdiv id='cnzz_stat_icon_5076009' style='display:none;'%3E%3C/div%3E%3Cscript src='" + cnzz_protocol + "s25.cnzz.com/stat.php%3Fid%3D5076009' type='text/javascript'%3E%3C/script%3E"));</script><div id="cnzz_stat_icon_5076009" style="display:none;"><a href="http://www.cnzz.com/stat/website.php?web_id=5076009" target="_blank" title="站长统计">站长统计</a></div><script src="./jQuery Lazy Load 图片延迟加载_files/stat.php" type="text/javascript"></script><script src="./jQuery Lazy Load 图片延迟加载_files/core.php" charset="utf-8" type="text/javascript"></script>
+</div>
+
+</body></html>

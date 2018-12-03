@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>懒加载与预加载</title>
+</head>
+<body>
+<script>
+//    懒加载也叫延迟加载：延迟加载图片或符合某些条件时才加载某些图片。
+//    预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。
+//    两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。懒加载对服务器端有一定的缓解压力作用，预加载则会增加服务器端压力。
+//    意义： 懒加载的主要目的是作为服务器端的优化，减少请求数或延迟请求数。
+//    懒加载的实现方式：仅加载用户可以看到的区域，这个主要由监控滚动条来实现，一般会在距用户看到某图片前一定距离遍开始加载，这样能保证用户拉下时正好能看到图片
+//    预加载可以说是牺牲服务器端性能，换取更好的用户体验，这样可以使用户的操作得到最快的反映。实现预载的方法非常多，可以用CSS(background)、JS(Image)、HTML(<img />)都可以，常用的是new Image();，设置其src来实现预载，再使用onload方法回调预载完成事件。只要浏览器把图片下载到本地，同样的src就会使用缓存，这是最基本也是最实用的预载方法。
+
+////    预加载方式
+//function loadImage(url,callback) {
+//    var img = new Image();
+//
+//    img.src = url;
+//
+//    if(img.complete) {  // 如果图片已经存在于浏览器缓存，直接调用回调函数
+//
+//        callback.call(img);
+//        return; // 直接返回，不用再处理onload事件
+//    }
+//
+//    img.onload = function(){
+//        img.onload = null;
+//        callback.call(img);
+//    }
+//}
+//
+//    loadImage('http://app.sencha.com.cn/lemei9/wangzheng/%E9%97%AE%E4%BD%9B/images/1.png',function(){
+//        alert(图片成功加载);
+//    });
+
+
+</script>
+</body>
+</html>

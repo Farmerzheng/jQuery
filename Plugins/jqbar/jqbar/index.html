@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>jQuery Animated Bar Plugin</title>
+    <!--<link href="css/demo.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" href="css/jqbar.css" />
+</head>
+<body>
+    <div class="container">
+
+        <div id="skillset" class="sixteen columns ">
+            
+            <div class="eight columns">
+                <div class="bars MT30">
+                    <div id="bar-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sixteen columns ">
+            
+            <div class="nine columns">
+                <div class="bars MT30">
+                    <div id="bar-7">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+
+    <script src="js/jqbar.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#bar-1').jqbar({ label: 'ASP.NET', value: 99, barColor: '#D64747' });
+
+
+            $('#bar-7').jqbar({ label: 'Wal', value: 90, barColor: '#D64747', orientation: 'v' });
+
+
+        });
+    </script>
+</body>
+</html>

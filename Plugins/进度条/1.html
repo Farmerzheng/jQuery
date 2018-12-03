@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jQuery%201.12.1.js"></script>
+</head>
+<style>
+    .loading{
+        background:#FF6100;
+        height:15px;
+        width:100%;
+        position:fixed;
+        top:0;
+        left:0;
+         z-index:99999
+    }
+    .div1{
+        width: 200px;
+        height: 200px;
+          background: url("img/univercity-1.jpg");
+      }
+    .div2{
+        width: 200px;
+        height: 200px;
+        background: url("img/univercity-2.jpg");
+    }
+    .div3{
+        width: 200px;
+        height: 200px;
+        background: url("img/univercity-3.jpg");
+    }
+    .div4{
+        width: 200px;
+        height: 200px;
+        background: url("img/univercity-4.jpg");
+    }
+    .div5{
+        width: 200px;
+        height: 200px;
+        background: url("img/univercity-5.jpg");
+    }
+    .div6{
+        width: 200px;
+        height: 200px;
+        background: url("img/univercity-7.jpg");
+    }
+    .div7{
+        width: 200px;
+        height: 200px;
+        background: url("img/univercity-7.jpg");
+    }
+    .div8{
+        width: 200px;
+        height: 200px;
+        background: url("img/univercity-7.jpg");
+    }
+</style>
+<body>
+<div class="loading"></div>
+<div id="header">
+    页头部分
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+    <script type="text/javascript">
+        $('.loading').animate({'width':'33%'},50);
+        //第一个进度节点
+    </script>
+</div>
+
+
+
+<div id="mainpage">
+    主页内容
+    <div class="div3"></div>
+    <div class="div4"></div>
+    < src="img/univercity-2.jpg" alt="">
+    <img src="img/univercity-3.jpg" alt="">
+    <script type="text/javascript">
+        $('.loading').animate({'width':'50%'},50);
+        //第二个进度节点
+    </script>
+</div>
+
+
+
+<div id="sider">
+    右边侧栏
+    <div class="div5"></div>
+    <div class="div6"></div>
+    <script type="text/javascript">
+        $('.loading').animate({'width':'80%'},50);
+        //第三个进度节点
+    </script>
+</div>
+
+
+
+<div id="footer">
+    页脚部分
+    <div class="div7"></div>
+    <div class="div8"></div>
+    <script type="text/javascript">
+        $('.loading').animate({'width':'100%'},50);
+        //第四个进度节点
+
+        $(document).ready(function(){
+            $('.loading').fadeOut();
+        });
+    </script>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <script src="js/jQuery 1.12.1.js"></script>
+    <script src="js/scrolling.js"></script>
+</head>
+<style>
+</style>
+<body>
+
+<div class="ul_wrap" style="width:1000px;height:300px;position:relative;overflow: hidden;border:1px solid red">
+</div>
+<script>
+    //注意“图片的宽度”，“图片的左间距”与“ul_wrap”大小关系
+    $('.ul_wrap').scroll({
+        imgSrcArr:["img/1.png","img/2.png","img/3.png","img/4.png"],//图片的URL数组
+        imgWidth:240,//图片宽度
+        imgMargin:10,//图片的左间距
+        speed:1 //滚动速度
+    })
+</script>
+</body>
+</html>

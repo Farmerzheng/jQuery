@@ -1,0 +1,29 @@
+<!doctype html>
+<html style="overflow:auto overflow-x:hidden">
+<head>
+    <meta charset="utf-8">
+    <title>广告轮番图</title>
+</head>
+<style>
+    .ad{
+        width: 600px;
+        height: 400px;
+    }
+</style>
+<body>
+<div class="ad">
+</div>
+<script src="js/jQuery 1.12.1.js"></script>
+<script src="js/fadeInOut.js"></script>
+<script>
+    $('.ad').fadeInOut({
+        imgSrcArr:['images/ad_1.jpg','images/ad_2.jpg','images/ad_3.jpg'],//图片的src地址数组
+        iconLeft:"45%",//小圆点图标距离“.ad”左侧的距离
+        iconTop:"80%",//小圆点图标距离“.ad”上部的距离
+        iconBgUrl:"images/circle.png",//小圆点的背景图片
+        active_iconBgUrl:"images/circle_active.png",//active状态下的小圆点背景图片
+        time:1000  //图片轮番的时间
+    })
+</script>
+</body>
+</html>
